@@ -1,0 +1,442 @@
+
+body{
+      background: url(../images/intro.png) 50% 0 fixed; 
+      height: auto;  
+      margin: 0 auto; 
+      width: 100%; 
+      position: relative; 
+     /* box-shadow: 0 0 50px rgba(0,0,0,0.8);*/
+      padding: 70px 0;
+
+
+}
+p{
+ font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  
+}
+@font-face {font-family:"Walt Disney Script";src:url("wds052801.eot?") format("eot"),url("wds052801.woff") format("woff"),url("wds052801.ttf") format("truetype"),url("wds052801.svg#WaltDisneyScript") format("svg");font-weight:normal;font-style:normal;}
+.titulo{
+
+font-family: Walt Disney Script;
+
+font-size: 40px;
+
+}  
+
+.icon-addon.addon-lg .form-control {
+    line-height: 1.33;
+    height: 46px;
+    font-size: 18px;
+    padding: 10px 16px 10px 40px;
+} 
+.navbar-default {
+  background-color: #4986f5;
+  border-color: #0f63e1;
+ 
+}
+.navbar-default .navbar-brand  {
+ font-family: 'Fjalla One', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+text-transform: none;
+text-decoration: none;
+letter-spacing: -0.05em;
+word-spacing: -0.02em;
+line-height: 0.5;
+text-shadow:5px 5px 10px black;
+  color: #ecf0f1;
+  padding-top: 24px;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #ffff00;
+}
+.navbar-default .navbar-text {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+   font-family: 'Fjalla One', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+text-transform: none;
+text-decoration: none;
+letter-spacing: -0.05em;
+word-spacing: -0.02em;
+line-height: 1;
+text-shadow:5px 5px 10px black;
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #ffff00;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #ffff00;
+  background-color: #0f63e1;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #ffff00;
+  background-color: #0f63e1;
+}
+.navbar-default .navbar-toggle {
+  border-color: #0f63e1;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #0f63e1;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+  color: #ffff00;
+}
+.navbar {min-height:50px}
+.dropdown-header{ color:  #0040C6;}
+
+@media (max-width: 767px) {
+  body{
+      background: url(../images/intro.png) 50% 0 fixed; 
+      height: auto;  
+      margin: 0 auto; 
+      width: 100%; 
+      position: relative; 
+     /* box-shadow: 0 0 50px rgba(0,0,0,0.8);*/
+      padding: 54px 0;
+
+
+}		
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffff00;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffff00;
+    background-color: #0f63e1;
+  }
+  .navbar-default .navbar-brand  {
+    font-family: 'Fjalla One', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	text-transform: none;
+	text-decoration: none;
+	letter-spacing: -0.05em;
+	word-spacing: -0.02em;
+	line-height: 1;
+	text-shadow:5px 5px 10px black;
+	  color: #ecf0f1;
+  	  padding-top: 7px;
+  }
+}
+body{padding-bottom:70px;}
+@media (max-width: 1200px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+  }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+    margin-top: 7.5px;
+  }
+  .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+      display:block !important;
+  }
+}
+hr {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+  border-style: solid none;
+  border-width: 1px 0;
+  margin: 18px 0;
+}
+
+.navbar-default .navbar-nav .dropdown-menu {
+   font-family: 'Fjalla One', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+text-transform: none;
+text-decoration: none;
+letter-spacing: -0.05em;
+word-spacing: -0.02em;
+line-height: 1;
+
+  color: #ecf0f1;
+}
+.modal-body{ padding: 20px;}
+
+#loginForm .inputGroupContainer .form-control-feedback,
+#loginForm .selectContainer .form-control-feedback
+ {
+    top: 0;
+    right: 15px;
+}
+#Registrelog .inputGroupContainer .form-control-feedback,
+#Registrelog .selectContainer .form-control-feedback {
+    top: 0;
+    right: 15px;
+}
+form#search-form{
+  position: relative;
+}
+ 
+form#search-form ul{
+	  position: absolute;
+	  top: 0;
+	  left: 0; 
+	  width: 100%;
+	  max-height: 200px;
+	  overflow: auto;	  
+	  z-index: 1;	  
+	  border:1px solid #DDDDDD;
+	  border-radius: 6px;
+	  background:White;	  
+  }
+ 
+span.ui-helper-hidden-accessible{
+  display: none !important;
+}
+ 
+.ui-state-focus {
+	 color: #ffffff;
+	 background-color: #428bca;
+}
+.ui-menu .ui-menu-item a.ui-corner-all:hover, .ui-menu .ui-menu-item a.ui-corner-all:focus, .ui-menu .ui-menu-item a.ui-corner-all:active {
+    background:#ff8a00!important;
+    color:#000;
+    border-radius:0;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    background: #ff8a00;
+    border: none;
+    color:#000;
+    border-radius:0;
+    font-weight: normal;
+}
+
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
+.box {
+    border-radius: 3px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    padding: 10px 25px;
+    text-align: right;
+    display: block;
+    margin-top: 60px;
+    background-color: white;
+}
+.box-icon {
+    background-image: url(http://lorempixel.com/output/nightlife-q-c-150-150-4.jpg);
+   /*background-color: #57a544; */
+    border-radius: 50%;
+    display: table;
+    height: 140px;
+    margin: 0 auto;
+    width: 140px;
+    margin-top: -61px;
+}
+.box-icon2 {
+    background-image: url(http://lorempixel.com/output/technics-q-c-140-140-3.jpg);
+   /*background-color: #57a544; */
+    border-radius: 50%;
+    display: table;
+    height: 140px;
+    margin: 0 auto;
+    width: 140px;
+    margin-top: -61px;
+}
+.box-icon span {
+    color: #fff;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.info h4 {
+    font-size: 26px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.info > p {
+    color: #717171;
+    font-size: 16px;
+    padding-top: 10px;
+    text-align: justify;
+}
+.info > a {
+    background-color: #03a9f4;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    color: #fff;
+    transition: all 0.5s ease 0s;
+}
+.info > a:hover {
+    background-color: #0288d1;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+    color: #fff;
+    transition: all 0.5s ease 0s;
+}
+#NuevoUser .form-control-feedback {
+ top: 27px;
+    right:15px;
+}
+#NuevoUser .form-control-feedback#captcha {
+ top: 76px;
+    right:15px;
+}
+ .g{font-family:"Walt Disney Script";}
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+      border-top-width: 0px;
+    }
+    .panel-default{
+        background-color: antiquewhite;
+          border-color: #050505;
+    }
+    .panel-default > .panel-heading {
+      background-color: transparent;
+      border-color: transparent;
+    }
+    .table{
+      table-layout: fixed;
+      border-collapse:collapse; border: none;
+    }
+    td {
+    overflow: hidden;
+    width: 100px;
+    word-wrap: break-word;
+    }
+
+    #social {
+  margin: 20px 10px;
+  text-align: left;
+}
+
+.smGlobalBtn{ /* global button class */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+    box-shadow: 0 2px 2px #999;
+    padding: 0px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 2em;
+    border-radius: 25px;
+    -moz-border-radius:25px;
+    -webkit-border-radius:25px;
+}
+
+/* facebook button class*/
+.facebookBtn{
+    background: #4060A5;
+}
+
+.facebookBtn:before{ /* use :before to add the relevant icons */
+    font-family: "FontAwesome";
+    content: "\f09a"; /* add facebook icon */
+}
+
+.facebookBtn:hover{
+    color: #4060A5;
+    background: #fff;
+}
+
+/* twitter button class*/
+.twitterBtn{
+    background: #00ABE3;
+}
+
+.twitterBtn:before{
+      font-family: "FontAwesome";
+      content: "\f099"; /* add twitter icon */
+}
+
+.twitterBtn:hover{
+      color: #00ABE3;
+      background: #fff;
+}
+
+/* google plus button class*/
+.googleplusBtn{
+    background: #e64522;
+}
+
+.googleplusBtn:before{
+      font-family: "FontAwesome";
+      content: "\f0d5"; /* add googleplus icon */
+}
+
+.googleplusBtn:hover{
+      color: #e64522;
+      background: #fff;
+}
+
+/* linkedin button class*/
+.linkedinBtn{
+    background: #0094BC;
+}
+a:hover{
+  text-decoration: none;
+}
+.polaroid {
+  position: relative;
+  width: 220px;
+}
+ 
+.polaroid img {
+  border: 10px solid #fff;
+  border-bottom: 45px solid #fff;
+  -webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
+}
+ 
+.polaroid p {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 0px;
+  font: 400 18px/1 'Kaushan Script', cursive;
+  color: #888;
+}

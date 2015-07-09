@@ -1,0 +1,407 @@
+.dhx_cal_light .dhx_cal_light_wide {
+    top: 25% !important;
+}
+
+.dhx_btn_set {
+    margin-bottom: 20px !important;
+}
+
+.dhx_cal_light_wide .dhx_section_time {
+    height: auto !important;
+}
+
+.dhx_map {
+    margin-top: 0 !important;
+}
+
+.dhx_repeat_text {
+    display: initial !important;
+}
+
+.dhx_cal_tab {
+    float: right !important;
+}
+
+#scheduler_here div.dhx_cal_navline {
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+.sample_list {
+    position: relative;
+    margin-top: 8px;
+    overflow: hidden;
+    padding: 0 0 20px !important;
+}
+
+    .sample_list li {
+        width: 230px;
+        float: left;
+        padding: 4px 0;
+        list-style: none;
+    }
+
+        .sample_list li a {
+            color: #4a4a4a;
+        }
+
+            .sample_list li a:hover {
+                text-decoration: none;
+            }
+
+        .sample_list li .current_sample {
+            color: #1869b5;
+            text-decoration: none;
+        }
+
+.sample_container {
+    display: inline-block;
+    height: 600px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px;
+    background: #F0EDE7;
+    margin-bottom: 10px;
+}
+
+.block-with-border {
+    padding: 0 0 0;
+    margin-bottom: 21px;
+}
+
+.links-block {
+    top: 0;
+}
+
+.feature_block.block-with-border, .block-with-border {
+    position: relative;
+    padding: 0 0 45px;
+    margin-bottom: 33px;
+    border-bottom: 1px solid #dedede;
+}
+
+.dhx_cal_event_clear {
+    height: auto !important;
+}
+
+.dhx_cal_wide_checkbox input {
+    margin-top: 5px !important;
+}
+
+.dhx_month_head {
+    margin: 0 !important;
+}
+
+.dhx_wa_column {
+    display: inline-block !important;
+    width: 50% !important;
+    padding: 0;
+    margin: 0;
+}
+
+.dhx_wa_column_last {
+    float: right !important;
+}
+
+.dhx_cal_light_rec.dhx_cal_light_wide {
+    width: 738px !important;
+}
+
+    .dhx_cal_light_rec.dhx_cal_light_wide .dhx_cal_larea {
+        width: 730px !important;
+    }
+
+.dhx_repeat_center, .dhx_repeat_right {
+    width: auto !important;
+}
+
+.dhx_repeat_right {
+    float: left !important;
+}
+
+.dhx_cal_light {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 768px) and (max-width : 992px) {
+    .dhx_cal_date {
+        font-size: 14px !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+
+    .dhx_cal_light_wide .dhx_cal_lsection {
+        text-align: left !important;
+    }
+
+    .dhx_form_repeat, .dhx_repeat_center {
+        padding-left: 0 !important;
+    }
+
+    .dhx_cal_light_rec.dhx_cal_light_wide {
+        width: 100% !important;
+    }
+
+        .dhx_cal_light_rec.dhx_cal_light_wide .dhx_cal_larea {
+            width: 100% !important;
+        }
+
+   .dhx_cal_navline .dhx_cal_prev_button,
+        .dhx_cal_navline .dhx_cal_next_button {
+            width: 48% !important;
+            display: inline-block;
+            -ms-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        .dhx_cal_navline .dhx_cal_tab, .dhx_cal_navline .dhx_cal_prev_button,
+        .dhx_cal_navline .dhx_cal_next_button,
+        .dhx_cal_navline .dhx_cal_today_button,
+        .dhx_cal_navline .dhx_minical_icon {
+            right: auto !important;
+            left: auto !important;
+            position: relative !important;
+            display: inline-block !important;
+        }
+
+        .dhx_cal_navline .dhx_cal_tab,
+        .dhx_cal_navline .dhx_cal_prev_button,
+        .dhx_cal_navline .dhx_cal_next_button,
+        .dhx_cal_navline .dhx_minical_icon {
+            top: 21px !important;
+        }
+
+        .dhx_cal_navline .dhx_cal_prev_button,
+        .dhx_cal_navline .dhx_cal_next_button,
+        .dhx_cal_navline .dhx_cal_today_button,
+        .dhx_cal_navline .dhx_minical_icon{
+            margin-bottom: 15px !important;
+        }
+		.dhx_cal_navline .dhx_cal_export.pdf {
+            margin-bottom: 15px !important;
+            top: 66px;
+            margin-right: -60px;
+        }
+    .dhx_cal_today_button, .dhx_cal_tab {
+        width: 60px !important;
+    }
+
+    .dhx_cal_light {
+        width: auto !important;
+        height: auto !important;
+    }
+
+    .dhx_cal_larea {
+        width: auto !important;
+    }
+
+    .dhx_wrap_section, .dhx_cal_ltitle, .dhx_cal_larea {
+        position: relative !important;
+        display: block !important;
+        overflow: initial !important;
+        margin-top: 21px;
+    }
+
+    .dhx_btn_set {
+        position: relative !important;
+        display: inline-block !important;
+    }
+
+    .dhx_multi_day, .dhx_cal_data, .dhx_cal_header {
+        width: 100% !important;
+    }
+
+    .dhx_cal_data {
+        height: 70% !important;
+        overflow-y: auto !important;
+    }
+
+    .grey_section, .red_section {
+        font-size: 14px !important;
+    }
+
+    .dhx_cal_date {
+        width: 100% !important;
+        height: auto !important;
+        text-align: center;
+        font-size: 12px !important;
+        top: 0 !important;
+    }
+
+    .dhx_cal_navline .dhx_cal_date {
+        left: 0 !important;
+    }
+
+    .dhx_map {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        height: 47% !important;
+        float: left;
+        margin: 0 !important;
+    }
+
+    .dhx_cal_date, .dhx_minical_icon {
+        position: absolute !important;
+    }
+
+    .dhx_section_time {
+        display: inline-block;
+        vertical-align: middle;
+        min-height: 0;
+        position: relative;
+        width: inherit;
+        height: auto !important;
+        width: 100% !important;
+    }
+
+        .dhx_section_time select {
+            position: relative;
+            min-height: 1px;
+            float: left;
+            width: 25%;
+            margin-bottom: 5px !important;
+        }
+
+    .dhx_form_repeat {
+        overflow-y: auto !important;
+    }
+
+    .dhx_repeat_left, .dhx_repeat_center, .dhx_repeat_right {
+        width: 100% !important;
+        display: block !important;
+        left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .dhx_repeat_divider {
+        display: none;
+    }
+
+    .dhx_cal_navline div.dhx_minical_icon {
+        top: 11px !important;
+    }
+
+    .dhx_grid_line div {
+        width: 30% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .dhx_grid_area tr.dhx_grid_event td {
+        width: 30% !important;
+        border-left: 1px solid #CECECE;
+    }
+
+        .dhx_grid_area tr.dhx_grid_event td.dhx_grid_dummy {
+            border: none;
+        }
+
+    .dhx_grid_area table {
+        width: auto !important;
+    }
+
+    .dhx_grid_v_border {
+        display: none;
+    }
+
+    .dhx_cal_ltext {
+        display: block;
+        width: 100%;
+        position: relative;
+        padding: 0 !important;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (orientation : landscape) and (max-width: 767px) {
+    .dhx_cal_ltext {
+        height: auto !important;
+    }
+
+        .dhx_cal_ltext textarea {
+            height: 70px !important;
+        }
+}
+
+@media screen and (max-width : 450px) {
+    .dhx_section_time span {
+        display: none;
+    }
+
+    .grey_section, .red_section {
+        font-size: 12px !important;
+    }
+
+    .dhx_cal_date {
+        font-size: 12px !important;
+    }
+
+    #scheduler_here div.dhx_cal_navline {
+        display: inline-block !important;
+        margin: 0 auto !important;
+    }
+
+
+    .dhx_cal_navline {
+      /*  text-align: center !important;*/
+    }
+
+        .dhx_cal_navline .dhx_cal_prev_button,
+        .dhx_cal_navline .dhx_cal_next_button,
+        .dhx_cal_navline .dhx_cal_today_button {
+            float: none !important;
+            left: auto !important;
+            right: auto !important;
+            margin-left: 0 !important;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            position: relative !important;
+        }
+
+    .dhx_minical_icon {
+        position: relative !important;
+    }
+
+
+    .dhx_grid_event td {
+        width: auto !important;
+    }
+
+    .dhx_grid_event .dhx_grid_dummy {
+        width: 1px !important;
+    }
+
+    .dhx_cal_navline .dhx_cal_prev_button,
+    .dhx_cal_navline .dhx_cal_next_button {
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .dhx_map {
+        height: 43% !important;
+    }
+
+    .dhx_cal_lsection {
+        padding: 0 !important;
+    }
+
+    .dhx_cal_ltext {
+        display: block;
+        width: 100%;
+        position: relative;
+        padding: 0 !important;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+}
