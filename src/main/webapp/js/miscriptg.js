@@ -14,11 +14,7 @@ $(document).ready(function(){
     $(window).scroll(function(e){
         parallax();
     }); 
-    console.log(" hola mensaje en consola");
-    console.info(" hola mensaje informativo");
-    console.warn(" hola mensaje de aviso");  
-    console.error(" hola mensaje de error");
-    console.debug(" hola mensaje de debug");
+
 	$(function() {
 		 
 	    $("#spotlight").autocomplete({
@@ -56,7 +52,7 @@ $(document).ready(function(){
         $('div#form-olvidado').toggle('500');
       });
 	
-	//Para poner en el mismmo servlet la comprobación de usuario y el email
+	//Para poner en el mismmo servlet la comprobaciï¿½n de usuario y el email
 	// con el imput hidden de comprobar
 	$("#usuario").focus(function() {
         var oID = $(this).attr("id");
@@ -69,17 +65,20 @@ $(document).ready(function(){
 	
 	jQuery.fn.reset = function () {
 		  $(this).each (function() { this.reset(); });
-		}
+		};
 	
     $.validator.addMethod("regex",function(value,element,regexp){
         var re= new RegExp(regexp);
         return this.optional(element) || re.test(value);
     },"Solo caracteres alfanumericos");
+
+
     
     $("#NuevoUser").validate({
         rules:{
                 usuario:{
                     required:true,
+                    minlength: 5,
                     regex:"^[a-zA-Z0-9_]+$",
                     remote:"UserCorrecto"
                 },
@@ -106,6 +105,7 @@ $(document).ready(function(){
         messages:{
             usuario:{
                 required:"Campo obligatorio",
+                minlength:"minimo 5 caracteres",
                 	remote:"Ese nombre esta en uso."
             },
             pass:{
@@ -115,7 +115,7 @@ $(document).ready(function(){
             },
             pass2:{
             	required:"Campo obligatorio",
-                equalTo:"La contraseña no es igual",
+                equalTo:"La contraseï¿½a no es igual",
                 minlength:"minimo 3 caracteres",
                 maxlength:"maximo 8 caracteres"
             },
@@ -179,10 +179,28 @@ $(document).ready(function(){
 				},
 
  				       	
-        	})
+        	});
             
             
         }
         	
-    })
-})
+    });
+    $('#close').on('click', function () {
+        $("#RegistroModal").validate().resetForm();
+        $('.form-group').removeClass('has-error has-feedback');
+        $('.form-group').removeClass('has-success has-feedback');
+        $('.form-control-feedback').removeClass('glyphicon-remove');
+        $('.form-control-feedback').removeClass('glyphicon-ok');
+        $("span.help-block").remove();
+        $("#NuevoUser").reset();
+    });
+    $('#cerrar').on('click', function () {
+        $("#RegistroModal").validate().resetForm();
+        $('.form-group').removeClass('has-error has-feedback');
+        $('.form-group').removeClass('has-success has-feedback');
+        $('.form-control-feedback').removeClass('glyphicon-remove');
+        $('.form-control-feedback').removeClass('glyphicon-ok');
+        $("span.help-block").remove();
+        $("#NuevoUser").reset();
+    });
+});

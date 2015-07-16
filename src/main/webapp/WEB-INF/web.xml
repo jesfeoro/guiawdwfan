@@ -5,7 +5,50 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          metadata-complete="false">
-
+<display-name>gwdwfan</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>StickyCaptcha</servlet-name>
+    <servlet-class>nl.captcha.servlet.StickyCaptchaServlet</servlet-class>
+    <init-param>
+      <param-name>width</param-name>
+      <param-value>250</param-value>
+    </init-param>
+    <init-param>
+      <param-name>height</param-name>
+      <param-value>75</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StickyCaptcha</servlet-name>
+    <url-pattern>/stickyImg</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AudioCaptcha</servlet-name>
+    <servlet-class>nl.captcha.servlet.AudioCaptchaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AudioCaptcha</servlet-name>
+    <url-pattern>/audio.wav</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+  <servlet>
+    <servlet-name>Captcha</servlet-name>
+    <servlet-class>controlador.EdwCaptcha</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Captcha</servlet-name>
+    <url-pattern>/Captcha.jpg</url-pattern>
+  </servlet-mapping>
          
 </web-app>
 
