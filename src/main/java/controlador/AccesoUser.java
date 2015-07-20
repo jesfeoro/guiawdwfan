@@ -40,20 +40,15 @@ public class AccesoUser extends HttpServlet {
 		// TODO Auto-generated method stub
 		String email = request.getParameter("email");
 		String pass = request.getParameter("password");
-		Usuario usu1 = new Usuario();
-		String usuario=usu1.busquedaUser(email, pass);
-
-		if(usuario == null) {
-			response.sendRedirect("JSP/errores.jsp");
-		}else {		
-			HttpSession sesion = request.getSession();
-			usu1.setUsuario(usuario);
-			usu1.setPassword(pass);
-			sesion.setAttribute("Usuario", usu1);
-			response.sendRedirect("index3.jsp");	
-		}
-	
-		
+			Usuario usu1 = new Usuario(); 
+			usu1= usu1.busquedaUser(email, pass);
+			if (usu1.isRegistrado()) {
+				HttpSession sesion = request.getSession();
+				sesion.setAttribute("Usuario", usu1);
+				response.sendRedirect("index3.jsp");
+			}else {				
+				response.sendRedirect("JSP/errores.jsp");
+			}				
 	}
 
 }

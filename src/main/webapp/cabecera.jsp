@@ -4,7 +4,7 @@
 		u1 =(Usuario)session.getAttribute("Usuario");
 		u1.getUsuario();
 	}catch(NullPointerException e){
-		u1 = new Usuario("Anonimo","");
+		u1 = new Usuario("Anonimo",0);
 		
 	}%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -88,7 +88,7 @@
 	                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user" style="font-size: 30px"></i>&nbsp;&nbsp;<%=u1.getUsuario()%></a>
 	                <ul class="dropdown-menu" role="menu">
 	                  <li><a href="#"><i class="fa fa-sign-out"></i> Profile</a></li>	
-	                  <li><a href="/logOut" ><i class="fa fa-sign-out"></i> Logout</a></li>
+	                  <li><a href="logOut" ><i class="fa fa-sign-out"></i> Logout</a></li>
 	                </ul>
 	          </li>
 	         <!--  <li> <a data-toggle="modal" href="#myModal"><i class="glyphicon glyphicon-user" style="font-size: 30px"></i>&nbsp;&nbsp; Usuario﻿</a> </li> -->

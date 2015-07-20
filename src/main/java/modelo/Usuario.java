@@ -9,23 +9,24 @@ import org.apache.commons.codec.digest.DigestUtils;
 import controlador.Conexion;
 
 public class Usuario {
+	private int IdUsuario;
 	private String usuario;
 	private String password;
-	private int codUsuario;
+	private boolean registrado;
 	
-	private int getCodUsuario() {
-		return codUsuario;
-	}
-	private void setCodUsuario(int codUsuario) {
-		this.codUsuario = codUsuario;
-	}
 	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}
-	public Usuario(String usuario, String password) {
+	public Usuario(String usuario, int IdUsuario) {
 		super();
 		this.usuario = usuario;
-		this.password = password;
+		this.IdUsuario = IdUsuario;
+	}
+	public Usuario(String usuario, int IdUsuario, boolean registrado) {
+		super();
+		this.usuario = usuario;
+		this.IdUsuario = IdUsuario;
+		this.registrado = registrado;
 	}
 	public String getUsuario() {
 		return usuario;
@@ -39,23 +40,37 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String busquedaUser(String ema, String pass) {
-		String nombreUser="";
+	public boolean isRegistrado() {
+		return registrado;
+	}
+	public void setRegistrado(boolean registrado) {
+		this.registrado = registrado;
+	}
+	
+	public int getIdUsuario() {
+		return IdUsuario;
+	}
+	public void setIdUsuario(int idUsuario) {
+		IdUsuario = idUsuario;
+	}
+	public Usuario busquedaUser(String ema, String pass){
+		Usuario user =new Usuario();
+		Conexion con = new Conexion();
 		try {
-			String passcodif= DigestUtils.sha256Hex(pass);
-			System.out.println("pass codificada = "+passcodif );
-			Conexion con = new Conexion();
+			String passcodif= DigestUtils.sha256Hex(pass);			
 			PreparedStatement ps = con.devuelvePS("Select IdUsuario, usuario from usuarios where email= ? and password= ?");		
 			ps.setString(1, ema);
 			ps.setString(2, passcodif);
 			ResultSet maleta= ps.executeQuery();
 			maleta.first();
 			if(maleta.getRow()==0) {
+				user.setRegistrado(false);
 				con.getConexion().close();
 			}else {
-				nombreUser = maleta.getString("usuario");
+				user.setUsuario(maleta.getString("usuario"));
+				user.setIdUsuario(maleta.getInt("IdUsuario"));
+				user.setRegistrado(true);
 				con.getConexion().close();
-
 			}
 			}catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
@@ -64,7 +79,7 @@ public class Usuario {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		return nombreUser;
+		return user;
 	}
 	public Boolean usuCorrecto(String usuario) {
 		try {

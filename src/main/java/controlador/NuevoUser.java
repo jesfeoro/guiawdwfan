@@ -45,8 +45,8 @@ public class NuevoUser extends HttpServlet {
 		String email = request.getParameter("email");
 		String pass = request.getParameter("pass");
 		Usuario usu = new Usuario();
+		//Usuario usu1= usu.NuevoUsu(user, email, pass);
 		Boolean res = usu.NuevoUsu(user,email,pass);
-		System.out.println(user);
 		// Enviar email al usuario nuevo
 		HttpSession sesion = request.getSession();
 		usu.setUsuario(user);
