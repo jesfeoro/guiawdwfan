@@ -84,7 +84,8 @@ $(document).ready(function(){
                 },
                 email:{
                     email:true,
-                    required:true
+                    required:true,
+                    remote:"EmailCorrecto"
                 },
                 answer:{
                     required:true,
@@ -106,7 +107,7 @@ $(document).ready(function(){
             usuario:{
                 required:"Campo obligatorio",
                 minlength:"minimo 5 caracteres",
-                	remote:"Ese nombre esta en uso."
+                remote:"Ese nombre esta en uso."
             },
             pass:{
                 required:"Campo obligatorio",
@@ -125,7 +126,8 @@ $(document).ready(function(){
             },
             email:{
                 email:"El email no es valido",
-                required:"Campo obligatorio"
+                required:"Campo obligatorio",
+                remote:"Ese email esta en uso."
             }
         },
         highlight: function(element) {
@@ -167,13 +169,14 @@ $(document).ready(function(){
 					// borramos los datos del formulario
 		            $("#NuevoUser").reset();	
 					// ahora creamos un alert para mostrar el resultado del registro insertado con exito
-		            $('#barra').before('<div class="alert alert-success" id="success-alert">'+
-		            	    '<a href="#" class="close" data-dismiss="alert">&times;</a>'+
-		            	   ' <strong>Bienvenido!</strong>Ya Puedes acceder a descubrir mas cosas de este sitio.'+
-		            	'</div>	');
+		            $('<div class="alert alert-success" id="success-alert">'+
+            	    '<a href="#" class="close" data-dismiss="alert">&times;</a>'+
+	            	   ' <strong>Bienvenido!</strong>Ya Puedes acceder a descubrir mas cosas de este sitio.'+
+	            	'</div>	').insertAfter('nav');
 					// por si no quiere cerrar la ventana se cerrara automaticamente
 		            $("#success-alert").fadeTo(7000, 500).slideUp(500, function(){
 		                $("#success-alert").alert('close');
+		                location.reload();
 		            });
 					
 				},

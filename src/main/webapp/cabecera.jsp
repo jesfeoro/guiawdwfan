@@ -4,7 +4,7 @@
 		u1 =(Usuario)session.getAttribute("Usuario");
 		u1.getUsuario();
 	}catch(NullPointerException e){
-		u1 = new Usuario("Anonimo","",0);
+		u1 = new Usuario("Anonimo","");
 		
 	}%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -110,7 +110,7 @@
             <div class="modal-body">
                 <!-- Pantalla de usuario -->
                   <div style="padding: 20px;" id="form-olvidado" class="form-horizontal">
-                    <form accept-charset="UTF-8" role="form" id="AccesoUser"action="../AccesoUser" method="post">
+                    <form accept-charset="UTF-8" role="form" id="AccesoUser" action="AccesoUser" method="post">
                         <fieldset>
                             <div class="form-group">            
                                 <div class="col-sm-12 inputGroupContainer">
@@ -192,7 +192,8 @@
         <h4 class="modal-title" id="exampleModalLabel"><i class="fa fa-cog"></i> Registrate&nbsp; <span style="font-size: 10px" class="label label-success ">GRATIS!!</span></h4>
       </div>
       <div class="modal-body">
-         <form id="NuevoUser" accept-charset="UTF-8" class="form-horizontal" action="UserNuevo"  method="post">
+         <form id="NuevoUser" accept-charset="UTF-8" class="form-horizontal" action="NuevoUser"  method="post">
+
 	            <div class="form-group has-feedback">
 	               <div class="col-sm-12 ">	
 		              <label for="recipient-name" class="control-label">Usuario:</label>

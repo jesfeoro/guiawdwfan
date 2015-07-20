@@ -1,7 +1,6 @@
 package controlador;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,19 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import nl.captcha.Captcha;
+import modelo.Usuario;
 
 /**
- * Servlet implementation class EnvioCaptcha
+ * Servlet implementation class AccesoUser
  */
-@WebServlet("/EnvioCaptcha")
-public class EnvioCaptcha extends HttpServlet {
+@WebServlet("/AccesoUser")
+public class AccesoUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EnvioCaptcha() {
+    public AccesoUser() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +31,6 @@ public class EnvioCaptcha extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
 	}
 
 	/**
@@ -40,20 +38,22 @@ public class EnvioCaptcha extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// We're doing this in a JSP here, but in your own app you'll want to put
-	    // this logic in your MVC framework of choice
-		 HttpSession session = request.getSession(true);
-		 PrintWriter out =response.getWriter();
-	    Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
-	    // Or, for an AudioCaptcha:
-	    // AudioCaptcha captcha = (AudioCaptcha) session.getAttribute(Captcha.NAME);
-	    request.setCharacterEncoding("UTF-8"); // Do this so we can capture non-Latin chars
-	    String answer = request.getParameter("answer");
-	    if (captcha.isCorrect(answer)) {     	
-	    	out.print(true);
-	    }else {	    	
-	    	out.print(false);
-	    } 
+		String email = request.getParameter("email");
+		String pass = request.getParameter("password");
+		Usuario usu1 = new Usuario();
+		String usuario=usu1.busquedaUser(email, pass);
+
+		if(usuario == null) {
+			response.sendRedirect("JSP/errores.jsp");
+		}else {		
+			HttpSession sesion = request.getSession();
+			usu1.setUsuario(usuario);
+			usu1.setPassword(pass);
+			sesion.setAttribute("Usuario", usu1);
+			response.sendRedirect("index3.jsp");	
+		}
+	
+		
 	}
 
 }

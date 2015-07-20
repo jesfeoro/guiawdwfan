@@ -55,7 +55,7 @@
 %>
   </head>
   <body>
-    
+    	
 <%@ include file="/cabecera.jsp" %>
 
 <div class="bg"></div>

@@ -10,19 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import nl.captcha.Captcha;
+import modelo.Usuario;
 
 /**
- * Servlet implementation class EnvioCaptcha
+ * Servlet implementation class NewUser
  */
-@WebServlet("/EnvioCaptcha")
-public class EnvioCaptcha extends HttpServlet {
+@WebServlet("/NuevoUser")
+public class NuevoUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EnvioCaptcha() {
+    public NuevoUser() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,20 +40,19 @@ public class EnvioCaptcha extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// We're doing this in a JSP here, but in your own app you'll want to put
-	    // this logic in your MVC framework of choice
-		 HttpSession session = request.getSession(true);
-		 PrintWriter out =response.getWriter();
-	    Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
-	    // Or, for an AudioCaptcha:
-	    // AudioCaptcha captcha = (AudioCaptcha) session.getAttribute(Captcha.NAME);
-	    request.setCharacterEncoding("UTF-8"); // Do this so we can capture non-Latin chars
-	    String answer = request.getParameter("answer");
-	    if (captcha.isCorrect(answer)) {     	
-	    	out.print(true);
-	    }else {	    	
-	    	out.print(false);
-	    } 
+		PrintWriter out = response.getWriter();
+		String user =request.getParameter("usuario");
+		String email = request.getParameter("email");
+		String pass = request.getParameter("pass");
+		Usuario usu = new Usuario();
+		Boolean res = usu.NuevoUsu(user,email,pass);
+		System.out.println(user);
+		// Enviar email al usuario nuevo
+		HttpSession sesion = request.getSession();
+		usu.setUsuario(user);
+		usu.setPassword(pass);
+		sesion.setAttribute("Usuario", usu);
+		out.print(true);
 	}
 
 }

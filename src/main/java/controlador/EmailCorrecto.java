@@ -8,21 +8,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import nl.captcha.Captcha;
+import modelo.Usuario;
 
 /**
- * Servlet implementation class EnvioCaptcha
+ * Servlet implementation class EmailCorrecto
  */
-@WebServlet("/EnvioCaptcha")
-public class EnvioCaptcha extends HttpServlet {
+@WebServlet("/EmailCorrecto")
+public class EmailCorrecto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EnvioCaptcha() {
+    public EmailCorrecto() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,20 +39,13 @@ public class EnvioCaptcha extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// We're doing this in a JSP here, but in your own app you'll want to put
-	    // this logic in your MVC framework of choice
-		 HttpSession session = request.getSession(true);
-		 PrintWriter out =response.getWriter();
-	    Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
-	    // Or, for an AudioCaptcha:
-	    // AudioCaptcha captcha = (AudioCaptcha) session.getAttribute(Captcha.NAME);
-	    request.setCharacterEncoding("UTF-8"); // Do this so we can capture non-Latin chars
-	    String answer = request.getParameter("answer");
-	    if (captcha.isCorrect(answer)) {     	
-	    	out.print(true);
-	    }else {	    	
-	    	out.print(false);
-	    } 
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();		
+		String email= request.getParameter("email");
+		Usuario usu = new Usuario();
+		Boolean res = usu.emaCorrecto(email);
+		out.println(res);
+		out.close();
 	}
 
 }
