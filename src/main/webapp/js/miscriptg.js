@@ -52,16 +52,7 @@ $(document).ready(function(){
         $('div#form-olvidado').toggle('500');
       });
 	
-	//Para poner en el mismmo servlet la comprobaci�n de usuario y el email
-	// con el imput hidden de comprobar
-	$("#usuario").focus(function() {
-        var oID = $(this).attr("id");
-        $("#comprobar").val(oID);
-        });
-	$("#email").focus(function() {
-        var oID = $(this).attr("id");
-        $("#comprobar").val(oID);
-        });
+
 	
 	jQuery.fn.reset = function () {
 		  $(this).each (function() { this.reset(); });
@@ -72,7 +63,39 @@ $(document).ready(function(){
         return this.optional(element) || re.test(value);
     },"Solo caracteres alfanumericos");
 
-
+    $("#LostPass").validate({
+		 rules:{
+ 			email2:{
+ 				email:true,
+ 				required:true,
+ 				 remote:"TratarUser?opcion=EmailCorrecto&tipos=lost"
+ 			     
+ 			}
+ 		},
+ 		 highlight: function(element) {
+             $(element).closest('.form-group').addClass('has-error');
+         },
+         unhighlight: function(element) {
+             $(element).closest('.form-group').removeClass('has-error');
+         },
+         errorElement: 'span',
+         errorClass: 'help-block',
+         errorPlacement: function(error, element) {
+             if(element.parent('.input-group').length) {
+                 error.insertAfter(element.parent());
+             } else {
+                 error.insertAfter(element);
+             }
+         },
+ 		messages:{
+ 			email2:{
+                 email2:"El email no es valido",
+                 required:"Campo obligatorio",
+                 remote: "Email no existe en la base de datos"
+             }
+ 		}
+    
+    });
     
     $("#NuevoUser").validate({
         rules:{
@@ -80,12 +103,12 @@ $(document).ready(function(){
                     required:true,
                     minlength: 5,
                     regex:"^[a-zA-Z0-9_]+$",
-                    remote:"UserCorrecto"
+                    remote:"TratarUser?opcion=UserCorrecto"
                 },
                 email:{
                     email:true,
                     required:true,
-                    remote:"EmailCorrecto"
+                    remote:"TratarUser?opcion=EmailCorrecto&tipos=registro"
                 },
                 answer:{
                     required:true,

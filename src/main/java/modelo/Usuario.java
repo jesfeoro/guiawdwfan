@@ -13,7 +13,7 @@ public class Usuario {
 	private String usuario;
 	private String password;
 	private boolean registrado;
-	
+
 	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}
@@ -22,6 +22,7 @@ public class Usuario {
 		this.usuario = usuario;
 		this.IdUsuario = IdUsuario;
 	}
+
 	public Usuario(String usuario, int IdUsuario, boolean registrado) {
 		super();
 		this.usuario = usuario;
@@ -53,6 +54,7 @@ public class Usuario {
 	public void setIdUsuario(int idUsuario) {
 		IdUsuario = idUsuario;
 	}
+
 	public Usuario busquedaUser(String ema, String pass){
 		Usuario user =new Usuario();
 		Conexion con = new Conexion();
@@ -104,19 +106,28 @@ public class Usuario {
 			}
 		return true;
 	}
-	public Boolean emaCorrecto(String email) {
+	public Boolean emaCorrecto(String email, String busqueda ) {
 		try {
 			Conexion con = new Conexion();
 			PreparedStatement ps = con.devuelvePS("Select IdUsuario from usuarios where email= ?");		
 			ps.setString(1, email);
 			ResultSet rs= ps.executeQuery();
-			//rs.first();
-			if (rs.next()) {
-				con.getConexion().close();
-				return false;
-			}else {
-				con.getConexion().close();
-				return true;
+			if(busqueda.equals("registro")) {
+				if (rs.next()) {
+					con.getConexion().close();
+					return false;
+				}else {
+					con.getConexion().close();
+					return true;
+				}
+			}else if (busqueda.equals("lost")) {
+				if (rs.next()) {
+					con.getConexion().close();
+					return true;
+				}else {
+					con.getConexion().close();
+					return false;
+				}	
 			}
 			}catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
@@ -148,4 +159,5 @@ public class Usuario {
 			}
 		return true;
 	}
+
 }

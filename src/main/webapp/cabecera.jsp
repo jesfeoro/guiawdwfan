@@ -88,7 +88,7 @@
 	                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user" style="font-size: 30px"></i>&nbsp;&nbsp;<%=u1.getUsuario()%></a>
 	                <ul class="dropdown-menu" role="menu">
 	                  <li><a href="#"><i class="fa fa-sign-out"></i> Profile</a></li>	
-	                  <li><a href="logOut" ><i class="fa fa-sign-out"></i> Logout</a></li>
+	                  <li><a href="TratarUser?opcion=logOut" ><i class="fa fa-sign-out"></i> Logout</a></li>
 	                </ul>
 	          </li>
 	         <!--  <li> <a data-toggle="modal" href="#myModal"><i class="glyphicon glyphicon-user" style="font-size: 30px"></i>&nbsp;&nbsp; Usuarioï»¿</a> </li> -->
@@ -110,7 +110,7 @@
             <div class="modal-body">
                 <!-- Pantalla de usuario -->
                   <div style="padding: 20px;" id="form-olvidado" class="form-horizontal">
-                    <form accept-charset="UTF-8" role="form" id="AccesoUser" action="AccesoUser" method="post">
+                    <form accept-charset="UTF-8" role="form" id="AccesoUser" action="TratarUser?opcion=AccesoUser" method="post">
                         <fieldset>
                             <div class="form-group">            
                                 <div class="col-sm-12 inputGroupContainer">
@@ -146,7 +146,7 @@
                     <h4 class="">
                       Perdistes tu contraseña?
                     </h4>
-                    <form accept-charset="UTF-8" role="form" id="Registrelog" method="post">
+                    
                       <fieldset>
                       <div class="form-group">
                         <span class="help-block">
@@ -155,12 +155,12 @@
                           Te enviaremos un correo electrónico con instrucciones para escoger una nueva contraseña.
                         </span>
                        </div> 
-
+					<form accept-charset="UTF-8" role="form" id="LostPass" action="TratarUser?opcion=LostPass" method="post">	
                         <div class="form-group">            
                                 <div class="col-sm-12 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"> @</span>
-                                       <input class="form-control" placeholder="Email" name="email" type="email">
+                                       <input class="form-control" placeholder="Email" name="email2" type="email2">                                     
                                     </div>
                                 </div>
                         </div>
@@ -192,7 +192,7 @@
         <h4 class="modal-title" id="exampleModalLabel"><i class="fa fa-cog"></i> Registrate&nbsp; <span style="font-size: 10px" class="label label-success ">GRATIS!!</span></h4>
       </div>
       <div class="modal-body">
-         <form id="NuevoUser" accept-charset="UTF-8" class="form-horizontal" action="NuevoUser"  method="post">
+         <form id="NuevoUser" accept-charset="UTF-8" class="form-horizontal" action="TratarUser?opcion=NuevoUser"  method="post">
 
 	            <div class="form-group has-feedback">
 	               <div class="col-sm-12 ">	
@@ -207,6 +207,7 @@
 		              <label for="message-text" class="control-label">E-mail:</label>
 		              <input type="text" class="form-control"  name="email" id="email">
 		              <span class="glyphicon form-control-feedback"></span>
+		              <input type="hidden" class="form-control" name="tipo"  value="busqueda">
 		            </div>
 	            </div>
 	            
