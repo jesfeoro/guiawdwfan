@@ -95,7 +95,7 @@
                 <div class="box-icon2"><span></span> </div>
                 <div class="info">
                     <h4 class="text-center">Title</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
                     <a href="" class="btn">Link</a>
                 </div>
             </div>
