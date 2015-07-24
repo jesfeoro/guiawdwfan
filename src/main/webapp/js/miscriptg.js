@@ -51,8 +51,7 @@ $(document).ready(function(){
         e.preventDefault();
         $('div#form-olvidado').toggle('500');
       });
-	
-
+	  
 	
 	jQuery.fn.reset = function () {
 		  $(this).each (function() { this.reset(); });
@@ -97,6 +96,73 @@ $(document).ready(function(){
     
     });
     
+    $("#AccesoUser").validate({
+		 rules:{
+			email2:{
+				email:true,
+				required:true				 			     
+			},
+			pass:{
+            	required: true,
+            	minlength: 3,
+            	maxlength: 8
+            }
+		},
+		 highlight: function(element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function(element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function(error, element) {
+            if(element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        },
+		messages:{
+			email2:{
+                email2:"El email no es valido",
+                required:"Campo obligatorio",
+            },
+            pass:{
+                required:"Campo obligatorio",
+                minlength:"minimo 3 caracteres",
+                maxlength:"maximo 8 caracteres"
+            }
+		}, submitHandler:function(form){
+        	//Crearemos  el registro en la base de datos
+        	$.ajax({
+				type: $(form).attr("method"),
+				url: $(form).attr("action"),
+				data: $(form).serialize(),
+				dataType : "json",
+				success: function(result){
+					if (result == 1) {
+						location.reload();			         	
+					}else{
+						$("#AccesoUser").reset();
+						$('<span for="email" style="color:red" class="help-block">'+
+								'Usuario y/o contraseñas incorrectas</span>').insertAfter('#refolvidado');
+					}
+				
+				}, 				       	
+        	});                        
+        }
+   });
+    $('#close').on('click', function () {
+        $("#RegistroModal").validate().resetForm();
+        $('.form-group').removeClass('has-error has-feedback');
+        $('.form-group').removeClass('has-success has-feedback');
+        $('.form-control-feedback').removeClass('glyphicon-remove');
+        $('.form-control-feedback').removeClass('glyphicon-ok');
+        $("span.help-block").remove();
+        $("#AccesoUser").reset();
+        $("#LostPass").reset();
+    });  
     $("#NuevoUser").validate({
         rules:{
                 usuario:{
@@ -193,7 +259,7 @@ $(document).ready(function(){
 		            $("#NuevoUser").reset();	
 					// ahora creamos un alert para mostrar el resultado del registro insertado con exito
 		            $('<div class="alert alert-success" id="success-alert">'+
-            	    '<a href="#" class="close" data-dismiss="alert">&times;</a>'+
+            	    '<a href="#cerraralert" class="close" data-dismiss="alert">&times;</a>'+
 	            	   ' <strong>Bienvenido!</strong>Ya Puedes acceder a descubrir mas cosas de este sitio.'+
 	            	'</div>	').insertAfter('nav');
 					// por si no quiere cerrar la ventana se cerrara automaticamente
@@ -201,6 +267,9 @@ $(document).ready(function(){
 		                $("#success-alert").alert('close');
 		                location.reload();
 		            });
+		            $('.close').click(function(e){
+		            	location.reload();
+		            }); 
 					
 				},
 

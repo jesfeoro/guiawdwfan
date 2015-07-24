@@ -99,7 +99,7 @@
 </nav>
 
 <!-- Modal  de usuario-->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -134,7 +134,7 @@
                             <button type="submit" class="btn btn-primary btn-block">
                               Accede
                             </button>
-                            <p class="help-block">
+                            <p class="help-block" id="refolvidado">
                               <a class="pull-right text-muted" href="#" id="olvidado"><small>Perdistes tu contraseña?</small></a>
                             </p>
                           </div>

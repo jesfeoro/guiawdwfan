@@ -73,14 +73,16 @@ public class TratarUser extends HttpServlet {
 	public void AccesoUser(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 			String email = request.getParameter("email");
 			String pass = request.getParameter("password");
+			PrintWriter out = response.getWriter();
 			Usuario usu1 = new Usuario(); 
 			usu1= usu1.busquedaUser(email, pass);
 			if (usu1.isRegistrado()) {
 				HttpSession sesion = request.getSession();
 				sesion.setAttribute("Usuario", usu1);
-				response.sendRedirect("index3.jsp");
+				//response.sendRedirect("index3.jsp");
+				out.print(true);
 			}else {				
-				response.sendRedirect("JSP/errores.jsp");
+				out.print(false);
 			}
 	}
 	public void LogOut(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
@@ -133,7 +135,27 @@ public class TratarUser extends HttpServlet {
 	public void LostPass(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		String email = request.getParameter("email2");
+		String uri = request.getScheme() + "://" +   // "http" + "://
+	             request.getServerName() +       // "myhost"
+	             ":" +                           // ":"
+	             request.getServerPort() +       // "8080"
+	             request.getRequestURI() +       // "/people"
+	             "?" +                           // "?"
+	             request.getQueryString(); 
+		
+		
+		//Crearemos una contraseña segura con PasswordGenerator, y tenemos el email 
+		//añadimos a la base de datos una tabla mas  con un registro con el password generado la clave y el token
+		// lo mandamos a un servlet con  un token(un numero codificado) y el email( y en el servlet hacemos la comprobacion a la base
+		// de datos si existe ese registro con el token y el email
+		// Mostramos Si existe, campos clave segura, captcha, pass, repetir pass, Boton de Aceptar y Cancelar
+		// Boton Aceptar --> Update de la tabla usuarios el campo contraseña y delete del registro de
+		// la tabla ConPerdido. y redirigimos a la pagina principal
+		// Boton Cancelar --> Pantalla de aviso texto ="Seguro que deseas salir?(Si sales tendras que perdir de nuevo
+		// el envio de "contraseña perdida"
 
+		
+		out.print(uri+" ");
 		out.print(email);
 	}
 }
