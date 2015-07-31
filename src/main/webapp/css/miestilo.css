@@ -1,6 +1,7 @@
 
 body{
       background: url(../images/intro.png) 50% 0 fixed; 
+      background-color: #EDF5FA;
       height: auto;  
       margin: 0 auto; 
       width: 100%; 
@@ -103,7 +104,8 @@ text-shadow:5px 5px 10px black;
 
 @media (max-width: 767px) {
   body{
-      background: url(../images/intro.png) 50% 0 fixed; 
+      background: url(../images/intro.png) 50% 0 fixed;
+
       height: auto;  
       margin: 0 auto; 
       width: 100%; 
@@ -326,7 +328,7 @@ span.ui-helper-hidden-accessible{
       border-top-width: 0px;
     }
     .panel-default{
-        background-color: antiquewhite;
+        background-color: rgb(241, 246, 247);
           border-color: #050505;
     }
     .panel-default > .panel-heading {

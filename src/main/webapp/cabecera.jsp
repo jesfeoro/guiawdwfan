@@ -160,7 +160,7 @@
                                 <div class="col-sm-12 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"> @</span>
-                                       <input class="form-control" placeholder="Email" name="email2" type="email2">                                     
+                                       <input class="form-control" placeholder="Email" name="email2" type="email">                                     
                                     </div>
                                 </div>
                         </div>

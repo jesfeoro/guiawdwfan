@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import modelo.Usuario;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 /**
  * Servlet implementation class TratarUser
  */
@@ -40,7 +42,8 @@ public class TratarUser extends HttpServlet {
 	 */
 	public enum Opciones
 	{
-	    NUEVOUSER, ACCESOUSER, LOSTPASS, LOGOUT, USERCORRECTO, EMAILCORRECTO   
+	    NUEVOUSER, ACCESOUSER, LOSTPASS, LOGOUT, USERCORRECTO,
+	    EMAILCORRECTO, PASSPERDIDA, RESTAURAPASS   
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -66,7 +69,12 @@ public class TratarUser extends HttpServlet {
 		    case EMAILCORRECTO:
 		    	EmailCorrecto(request, response);
 		    	break;
-		        
+		    case PASSPERDIDA:
+		    	passperdida(request, response);
+		    	break;
+		    case RESTAURAPASS:
+		    	RestauraPass(request, response);
+		    	break;
 
 		}
 	}
@@ -95,7 +103,6 @@ public class TratarUser extends HttpServlet {
 			String email = request.getParameter("email");
 			String pass = request.getParameter("pass");
 			Usuario usu = new Usuario();
-			//Usuario usu1= usu.NuevoUsu(user, email, pass);
 			Boolean res = usu.NuevoUsu(user,email,pass);
 			// Enviar email al usuario nuevo
 			HttpSession sesion = request.getSession();
@@ -132,20 +139,35 @@ public class TratarUser extends HttpServlet {
 		out.close();
 		
 	}
+	public void passperdida(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();			
+		String clave= request.getParameter("clave");
+		String ema= request.getParameter("email");
+		System.out.println("mandado email -->"+ema);
+		Usuario usu = new Usuario();
+		Boolean res = usu.BusquedaClave(clave,ema);
+		out.println(res);
+		out.close();
+}
 	public void LostPass(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		String email = request.getParameter("email2");
-		String uri = request.getScheme() + "://" +   // "http" + "://
-	             request.getServerName() +       // "myhost"
-	             ":" +                           // ":"
-	             request.getServerPort() +       // "8080"
-	             request.getRequestURI() +       // "/people"
-	             "?" +                           // "?"
-	             request.getQueryString(); 
+		Usuario usu = new Usuario();
+		
+		// comprobaremos primero si existe ese email en la tabla 'lostpassuser' para decir al usuario
+		// que no puede hacerlo por que se le envio una 'contraseña segura' hace menos de 24 horas
+		// y no puede hacerla hasta que no pase ese tiempo. 
+		
+		 if (usu.buscaemalost(email)== true){
+		   String respuesta = "El usuario ya tiene una recuperacion de contraseña activa. No puede realizar esta operación hasta que no pasen 24 horas";
+			request.setAttribute("motivo", respuesta);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		}else{
 		
 		
-		//Crearemos una contraseña segura con PasswordGenerator, y tenemos el email 
-		//añadimos a la base de datos una tabla mas  con un registro con el password generado la clave y el token
+		
+		// añadimos a la base de datos una tabla mas  con un registro con el password generado la clave y el token
 		// lo mandamos a un servlet con  un token(un numero codificado) y el email( y en el servlet hacemos la comprobacion a la base
 		// de datos si existe ese registro con el token y el email
 		// Mostramos Si existe, campos clave segura, captcha, pass, repetir pass, Boton de Aceptar y Cancelar
@@ -153,9 +175,48 @@ public class TratarUser extends HttpServlet {
 		// la tabla ConPerdido. y redirigimos a la pagina principal
 		// Boton Cancelar --> Pantalla de aviso texto ="Seguro que deseas salir?(Si sales tendras que perdir de nuevo
 		// el envio de "contraseña perdida"
-
 		
-		out.print(uri+" ");
-		out.print(email);
+
+		// Crearemos una contraseña segura con PasswordGenerator
+		String clave =PasswordGenerator.getPassword(
+				PasswordGenerator.MINUSCULAS+
+				PasswordGenerator.MAYUSCULAS,10);
+		
+		System.out.println("clave= "+clave);
+		// y la encriptamos para obtener un token, q le enviaremos al usuario
+		String token=DigestUtils.sha256Hex(clave);
+		System.out.println("clave encriptada= "+token);
+		//Obtenemos el Id del usuario		
+		int id=usu.ObtenerIDUsuario(email);
+		
+		System.out.println("id usuario -->"+id);
+		// Agregar registro a la tabla lostPassUser
+		usu.InsertarLostPass(id,email,clave,token);
+		System.out.println("Insertada fila en tabla lostpass");
+		
+		//enviar mensaje al usuario
+
+		// obetnemos la url y modificamos el destino asi para mandarsela al usuario
+		String url = request.getRequestURL().toString();
+		String baseURL = url.substring(0, url.length() - request.getRequestURI().length()) + request.getContextPath() + "/";
+		
+		//response.sendRedirect("LostPass?token="+token+"&email="+email);
+		
+
+		out.println("baseURL + envio = "+baseURL+"LostPass?token="+token+"&email="+email);
+		}
+	}
+	public void RestauraPass(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		String email = request.getParameter("email");
+		String pass = request.getParameter("passR");
+		String token = request.getParameter("token");
+		System.out.println("Restaura pass email -->"+email);
+		System.out.println("Restaura pass pass -->"+pass);
+		System.out.println("Restaura pass token -->"+token);
+		
+		Usuario usu = new Usuario();
+		usu.CambiarPass(pass, email, token);
+		System.out.println("contraseña cambiada con exito");
+		response.sendRedirect("index3.jsp");
 	}
 }

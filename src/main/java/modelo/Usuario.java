@@ -159,5 +159,149 @@ public class Usuario {
 			}
 		return true;
 	}
-
+	public  int ObtenerIDUsuario(String email) {
+		int IdUser;
+		try {
+			
+			Conexion con = new Conexion();
+			PreparedStatement ps = con.devuelvePS("Select IdUsuario from usuarios where email= ?");		
+			ps.setString(1, email);
+			ResultSet rs= ps.executeQuery();
+			//rs.first();
+			if (rs.next()) {
+				IdUser=rs.getInt("IdUsuario");
+				con.getConexion().close();
+				return IdUser;
+				
+			}else {
+				IdUser=0;
+				con.getConexion().close();
+				return IdUser;
+				
+			}
+			}catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return 0;
+		
+	}
+	public void InsertarLostPass(int id, String email, String clave, String token) {
+		try {
+			Conexion con = new Conexion();
+			// Codificamos la password  para no tenerla en texto plano en la base de datos
+			String query= "insert into lostpassuser (IdUsuario, email, pass, token, fecha) values (?,?,?,?, DEFAULT)";
+			PreparedStatement ps = con.devuelvePS(query);		
+			ps.setInt(1, id);
+			ps.setString(2, email);
+			ps.setString(3, clave);
+			ps.setString(4, token);
+			ps.execute();
+			con.getConexion().close();
+			}catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+	public boolean BusquedaClave(String clave, String email) {
+		
+		try {
+			
+			Conexion con = new Conexion();
+			PreparedStatement ps = con.devuelvePS("Select * from lostpassuser where email= ? and pass =?");		
+			ps.setString(1, email);
+			ps.setString(2, clave);
+			ResultSet rs= ps.executeQuery();
+			if (rs.next()) {				
+				con.getConexion().close();
+				return true;	
+			}else {				
+				con.getConexion().close();
+				return false;	
+			}
+			}catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return true;
+	}
+	public void CambiarPass(String pass,String email, String token) {
+	try {
+			String passcodif=DigestUtils.sha256Hex(pass);
+			Conexion con = new Conexion();
+			PreparedStatement ps = con.devuelvePS("UPDATE usuarios set password= ? where  email= ?");		
+			ps.setString(1, passcodif);
+			ps.setString(2, email);
+			ps.executeUpdate();
+			ps= con.devuelvePS("DELETE FROM lostpassuser where email=? and token =?");
+			ps.setString(1, email);
+			ps.setString(2, token);
+			ps.executeUpdate();
+			con.getConexion().close();
+			}catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+	public boolean buscaemalost(String email) {
+		try {
+			
+			Conexion con = new Conexion();
+			PreparedStatement ps = con.devuelvePS("Select * from lostpassuser where email= ?");		
+			ps.setString(1, email);
+			ResultSet rs= ps.executeQuery();
+			if (rs.next()) {				
+				con.getConexion().close();
+				return true;	
+			}else {				
+				con.getConexion().close();
+				return false;	
+			}
+			}catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		return true;
+	}
+	public boolean buscaematoken(String email, String token) {
+		try {
+			
+			Conexion con = new Conexion();
+			PreparedStatement ps = con.devuelvePS("Select * from lostpassuser where email= ? and token = ?");		
+			ps.setString(1, email);
+			ps.setString(2, token);
+			ResultSet rs= ps.executeQuery();
+			if (rs.next()) {				
+				con.getConexion().close();
+				return true;	
+			}else {				
+				con.getConexion().close();
+				return false;	
+			}
+			}catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		return true;
+	}
 }

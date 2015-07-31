@@ -88,9 +88,9 @@ $(document).ready(function(){
          },
  		messages:{
  			email2:{
-                 email2:"El email no es valido",
+                 email:"El email no es valido",
                  required:"Campo obligatorio",
-                 remote: "Email no existe en la base de datos"
+                 remote: "Email no existe en la base de datos(lostPass)"
              }
  		}
     
@@ -98,7 +98,7 @@ $(document).ready(function(){
     
     $("#AccesoUser").validate({
 		 rules:{
-			email2:{
+			email:{
 				email:true,
 				required:true				 			     
 			},
@@ -124,8 +124,8 @@ $(document).ready(function(){
             }
         },
 		messages:{
-			email2:{
-                email2:"El email no es valido",
+			email:{
+                email:"El email no es valido",
                 required:"Campo obligatorio",
             },
             pass:{
