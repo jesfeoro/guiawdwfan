@@ -3,6 +3,14 @@ package modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -303,5 +311,63 @@ public class Usuario {
 			}
 		
 		return true;
+	}
+	public void enviomail(String email, String pass, String URL ) {
+		try
+        {
+            // Propiedades de la conexión
+            Properties props = new Properties();
+            props.setProperty("mail.smtp.host", "smtp.gmail.com");
+            props.setProperty("mail.smtp.starttls.enable", "true");
+            props.setProperty("mail.smtp.port", "465");
+            props.setProperty("mail.smtp.user", "infogwdwfan@gmail.com");
+            props.setProperty("mail.smtp.auth", "true");
+            props.put("mail.debug", "true");
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.EnableSSL.enable", "true");
+            props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+            props.setProperty("mail.smtp.socketFactory.fallbac k", "false");
+            props.setProperty("mail.smtp.socketFactory.port", "465");
+            
+            Session session = Session.getInstance(props,
+                    new javax.mail.Authenticator() {
+
+                        protected PasswordAuthentication getPasswordAuthentication() {
+                            return new PasswordAuthentication("infogwdwfan@gmail.com", "QHQBFyuW");
+                        }
+                    });
+
+            // Construimos el mensaje
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(email));
+            message.addRecipient(
+                Message.RecipientType.TO,
+                new InternetAddress(email));
+            message.setSubject(" Recuperacion de contraseña ");
+            message.setText(
+            		"<img src='https://drive.google.com/uc?export=download&id=0B1P7AQivZakEM2Z6VkplRjNXXzg' alt=''>" 
+            		+ "<p><b>Recuperación de contraseña</b></p>"
+            		+ "<p>Para poder cambiar tu contraseña de entrada tendrás que seguir dos simples pasos</p>"
+            		+ "1.- Compia la clave que te proporcionamos que aparece a continuación</p>"
+            		+"La clave =<b>"+pass+"</b><br>"
+            		+ "<p>2.- Accede a la siguiente pagina</p>"
+            		+"La URL = <a href='"+URL+"'> "+URL,
+            		"ISO-8859-1",
+            		"html");  
+
+            // Lo enviamos.
+            Transport t = session.getTransport("smtp");
+            t.connect("infogwdwfan@gmail.com", "QHQBFyuW");
+            t.sendMessage(message, message.getAllRecipients());
+
+            // Cierre.
+            t.close();
+            System.out.println("mensaje enviado"); 
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 	}
 }

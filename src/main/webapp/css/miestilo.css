@@ -102,6 +102,28 @@ text-shadow:5px 5px 10px black;
 .navbar {min-height:50px}
 .dropdown-header{ color:  #0040C6;}
 
+#titulocomun  {
+	 font-family: 'Fjalla One', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 50px;
+	text-transform: none;
+	text-decoration: none;
+	letter-spacing: -0.05em;
+	word-spacing: -0.02em;
+	line-height: initial;
+}
+#titulozona  {
+	 font-family: 'Fjalla One', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	text-transform: none;
+	text-decoration: none;
+	letter-spacing: -0.05em;
+	word-spacing: -0.02em;
+	line-height: initial;
+}
 @media (max-width: 767px) {
   body{
       background: url(../images/intro.png) 50% 0 fixed;
@@ -139,6 +161,17 @@ text-shadow:5px 5px 10px black;
 	  color: #ecf0f1;
   	  padding-top: 7px;
   }
+  #titulocomun  {
+	 font-family: 'Fjalla One', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 40px;
+	text-transform: none;
+	text-decoration: none;
+	letter-spacing: -0.05em;
+	word-spacing: -0.02em;
+	line-height: initial;
+}
 }
 body{padding-bottom:70px;}
 @media (max-width: 1200px) {
@@ -470,4 +503,6 @@ a:hover{
   background:transparent;
   margin-top: -54px;
   padding-top: 245px;
+}
+
 }

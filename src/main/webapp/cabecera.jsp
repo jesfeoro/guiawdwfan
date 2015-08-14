@@ -7,6 +7,7 @@
 		u1 = new Usuario("Anonimo",0);
 		
 	}%>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -28,9 +29,9 @@
 	              <a href="#" class="dropdown-toggle" data-toggle="dropdown">&nbsp;Info </a>
 	              <ul class="dropdown-menu" role="menu">
 	                <li class="dropdown-header">Los Parques</li>
-	                  <li><a href="#">Magic KingDom</a></li>
+	                  <li><a href="Parques?parque=Magic Kingdom">Magic Kingdom</a></li>
 	                  <li><a href="#">Epcot</a></li>
-	                  <li><a href="#">Holliwood Studios</a></li>
+	                  <li><a href="Parques?parque=Hollywood studios">Hollywood Studios</a></li>
 	                  <li><a href="#">Animal Kingdom</a></li>
 	                  <li><a href="#">Parques de Agua</a></li>
 	                 <li class="divider"></li>
@@ -56,7 +57,7 @@
 	              <ul class="dropdown-menu" role="menu">
 	                 <li><a href="#">Magic KingDom</a></li>
 	                <li><a href="#">Epcot</a></li>
-	                <li><a href="#">Holliwood Studios</a></li>
+	                <li><a href="#">Hollywood Studios</a></li>
 	                <li><a href="#">Animal Kingdom</a></li>
 	                <li><a href="#">Restaurantes en los Hoteles</a></li>
 	              </ul>
@@ -66,7 +67,8 @@
 	
 	        <form class="navbar-form navbar-right " role="form" id="search-form" action="Busqueda" method="post">
 	         <div class="form-group">
-	            <input type="text" class="form-control" placeholder="Buscar" id="spotlight" name="spotlight">
+	            <input type="text" class="form-control empty" id="spotlight" name="spotlight" placeholder="&#xF002; " style="font-family:Arial, FontAwesome">
+	            
 	          </div>
 	         </form>               
 	
@@ -97,6 +99,43 @@
 	        </div><!--/.navbar-collapse -->
 	      </div>
 </nav>
+ 
+ <% if(session.getAttribute("respuesta")!= null){
+	  String resultado=session.getAttribute("respuesta").toString();
+	  %>
+	   <script type="text/javascript">
+	 $(document).ready(function() {
+	   $('#myModal').modal({
+	    show: true,
+	   })
+	 });
+	</script>
+	
+	 <!-- Modal -->
+	 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-     labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+	   <div class="modal-dialog">
+	     <div class="modal-content">
+	       <div class="modal-header">
+	         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	         <h4 class="modal-title" id="myModalLabel">Cambio de contraseña</h4>
+	       </div>
+	       <div class="modal-body">
+	       		<% if (resultado.equals("exito pass") ){ %>
+	        		 <p><i class="fa fa-check-circle-o fa-2x" style="color: green;"></i>  La contraseña ha sido cambiada con exito. Ya puedes acceder con tu usuario.</p>
+	       		<%}else{ %>
+	       			 <p><i class="fa fa-exclamation-triangle fa-2x" style="color: green;"></i>  Revisa tu correo. Hemos enviado las instrucciones para tu cambio de contraseña</p>
+	       		<%} %>
+	       </div>
+	       <div class="modal-footer">
+	         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	
+	       </div>
+	     </div><!-- /.modal-content -->
+	   </div><!-- /.modal-dialog -->
+	 </div><!-- /.modal -->
+  
+	<%} 
+ 	session.removeAttribute("respuesta");%>
 
 <!-- Modal  de usuario-->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"data-keyboard="false" data-backdrop="static">
@@ -248,3 +287,6 @@
       </div>
    </div>
   </div>
+
+
+  

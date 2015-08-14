@@ -44,15 +44,6 @@
    <link href="http://ajax.googleapis.com//ajax/libs/jqueryui/1.7.2/themes/start/jquery-ui.css" rel="stylesheet">
 
       <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-     
-    
-
-
-				
-<% 	/*	if(u1.getCodCliente()!= 1){
-			response.sendRedirect("JSP/errores.jsp");
-		}	*/
-%>
   </head>
   <body>
     	

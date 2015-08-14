@@ -10,7 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-   
+    <meta http-equiv="Expires" content="0" />
+	<meta http-equiv="Pragma" content="no-cache" />
 
     <title>Guia Walt Disney World Fan</title>
 
@@ -53,8 +54,8 @@
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
-      <div class="hidden-lg">
-           <div class="panel-heading">
+      <div class="">
+           <div class="panel-heading hidden-lg">
              <p> <i class="fa fa-info-circle fa-2x" style="color: #2ECC6F;" ></i> <b> Recuperación de contraseña</b></p>
         </div>
        </div>
@@ -108,8 +109,8 @@
      		 </div>
         </form>
       </div>
-      <div class="visible-lg ">
-	      <div class="col-md-6">
+      <div class=" ">
+	      <div class="col-md-6 visible-lg">
 	      	 <p class="simbolo"  style="position: absolute; left: 25%; top: 50px;"> <i class="fa fa-info-circle fa-5x" style="font-size: 296px; color: #2ECC6F;" ></i><br>
 	      	<b> Recuperación de contraseña</b></p>
 	      </div>
@@ -124,7 +125,12 @@
 <hr>
 
 <%@ include file="/pie.jsp" %>
+
 <script type="text/javascript">
+
+if(history.forward(1))
+	location.replace(history.forward(1));
+
 $("#passmiss").validate({
     rules:{
             clave:{

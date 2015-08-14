@@ -153,20 +153,15 @@ public class TratarUser extends HttpServlet {
 	public void LostPass(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		String email = request.getParameter("email2");
-		Usuario usu = new Usuario();
-		
+		Usuario usu = new Usuario();		
 		// comprobaremos primero si existe ese email en la tabla 'lostpassuser' para decir al usuario
 		// que no puede hacerlo por que se le envio una 'contraseña segura' hace menos de 24 horas
-		// y no puede hacerla hasta que no pase ese tiempo. 
-		
+		// y no puede hacerla hasta que no pase ese tiempo. 		
 		 if (usu.buscaemalost(email)== true){
 		   String respuesta = "El usuario ya tiene una recuperacion de contraseña activa. No puede realizar esta operación hasta que no pasen 24 horas";
 			request.setAttribute("motivo", respuesta);
 			request.getRequestDispatcher("error.jsp").forward(request, response);
-		}else{
-		
-		
-		
+		}else{	
 		// añadimos a la base de datos una tabla mas  con un registro con el password generado la clave y el token
 		// lo mandamos a un servlet con  un token(un numero codificado) y el email( y en el servlet hacemos la comprobacion a la base
 		// de datos si existe ese registro con el token y el email
@@ -175,48 +170,42 @@ public class TratarUser extends HttpServlet {
 		// la tabla ConPerdido. y redirigimos a la pagina principal
 		// Boton Cancelar --> Pantalla de aviso texto ="Seguro que deseas salir?(Si sales tendras que perdir de nuevo
 		// el envio de "contraseña perdida"
-		
-
 		// Crearemos una contraseña segura con PasswordGenerator
 		String clave =PasswordGenerator.getPassword(
 				PasswordGenerator.MINUSCULAS+
 				PasswordGenerator.MAYUSCULAS,10);
-		
-		System.out.println("clave= "+clave);
 		// y la encriptamos para obtener un token, q le enviaremos al usuario
 		String token=DigestUtils.sha256Hex(clave);
-		System.out.println("clave encriptada= "+token);
 		//Obtenemos el Id del usuario		
 		int id=usu.ObtenerIDUsuario(email);
-		
-		System.out.println("id usuario -->"+id);
 		// Agregar registro a la tabla lostPassUser
 		usu.InsertarLostPass(id,email,clave,token);
-		System.out.println("Insertada fila en tabla lostpass");
-		
-		//enviar mensaje al usuario
-
-		// obetnemos la url y modificamos el destino asi para mandarsela al usuario
 		String url = request.getRequestURL().toString();
-		String baseURL = url.substring(0, url.length() - request.getRequestURI().length()) + request.getContextPath() + "/";
+		String baseURL = url.substring(0, url.length() - request.getRequestURI().length()) +
+				request.getContextPath() + "/"+"LostPass?token="+token+"&email="+email;
+		usu.enviomail(email, clave, baseURL);		
+		HttpSession session = request.getSession(false);
+		String respuesta = "envio mail";
+		session.setAttribute("respuesta", respuesta);
+		//request.setAttribute("respuesta", respuesta);
+		//request.getRequestDispatcher("index3.jsp").forward(request, response);
+		response.sendRedirect("index3.jsp");
 		
-		//response.sendRedirect("LostPass?token="+token+"&email="+email);
 		
-
-		out.println("baseURL + envio = "+baseURL+"LostPass?token="+token+"&email="+email);
 		}
 	}
 	public void RestauraPass(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String pass = request.getParameter("passR");
 		String token = request.getParameter("token");
-		System.out.println("Restaura pass email -->"+email);
-		System.out.println("Restaura pass pass -->"+pass);
-		System.out.println("Restaura pass token -->"+token);
-		
 		Usuario usu = new Usuario();
 		usu.CambiarPass(pass, email, token);
 		System.out.println("contraseña cambiada con exito");
+		String respuesta = "exito pass";
+		HttpSession session = request.getSession(false);
+		session.setAttribute("respuesta", respuesta);
+		//request.setAttribute("respuesta", respuesta);
+		//request.getRequestDispatcher("index3.jsp").forward(request, response);
 		response.sendRedirect("index3.jsp");
 	}
 }
