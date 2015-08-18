@@ -2,18 +2,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html itemscope itemtype="http://schema.org/Article">
+<html lang="es-ES" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/Blog">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Compatibilidad de el odioso Internet Explorer -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
 <title>Guia Walt Disney World Fan/Honey, I Shrunk The Kids: Movie Set Adventure</title>
 <meta name="description" content="Aqui va una pequeña descripcion de la pagina atraccion resultante(name)">
+
+<!-- El canónico siempre debe ser la página actual -->
+<link rel="canonical" href="http://gwdwfan-miejemplojesfe.rhcloud.com/atraccion.jsp" />
 
 <!-- Añade las tres etiquetas siguientes en la sección "head". -->
 <meta itemprop="name" content="Guia Walt Disney World Fan - atraccion de parque">
 <meta itemprop="description" content="Aqui va una pequeña descripcion de la pagina atraccion resultante(itempro)">
 <meta itemprop="image" content="http://lorempixel.com/output/technics-q-c-200-200-2.jpg">
 
+<!-- Open Graph para Facebook--> 
+<meta property="og:title" content="Guia Walt Disney World Fan - atraccion de parque(og)" /> 
+<meta property="og:type" content="article" /> 
+<meta property="og:url" content="http://gwdwfan-miejemplojesfe.rhcloud.com/atraccion.jsp" />
+<meta property="og:image" content="http://oropensando.com/imagen.jpg" />
+<meta property="og:description" content="Otra web de desarrollo web" /> 
+<meta property="og:site_name" content="Guia Walt Disney Fan" />
+<meta property="og:locale" content="es_ES">
+
+ 
+<!-- Twitter Card --> 
+<meta name="twitter:card" content="summary_large_image">  
+<meta name="twitter:title" content="Guia Walt Disney World Fan/Honey, I Shrunk The Kids: Movie Set Adventure"> 
+<meta name="twitter:description" content="Aqui va una pequeña descripcion de la pagina atraccion resultante(twitter)">  
+<meta name="twitter:image:src" content="http://lorempixel.com/output/technics-q-c-200-200-2.jpg">
 
     <!-- Bootstrap core CSS -->
     <link href="js/bootstrap-media-lightbox.css" rel="stylesheet">
