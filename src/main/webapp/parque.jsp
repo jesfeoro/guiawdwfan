@@ -59,7 +59,7 @@
 <div class="container">
   <div class="row"  >
     <div class="col-md-12">
-      <img src="<%=p.getImagen() %>" class="img-responsive img-rounded" alt="" style="box-shadow:  5px 5px 12px 0px rgba(0, 0, 0, 1.46); border: 1px solid whitesmoke;"> 
+      <img src="https://drive.google.com/uc?export=download&id=<%=p.getImagen() %>" class="img-responsive img-rounded" alt="" style="box-shadow:  5px 5px 12px 0px rgba(0, 0, 0, 1.46); border: 1px solid whitesmoke;"> 
       <br>
       <h1 id="titulocomun"><%=p.getNombre() %></h1><br>
       <p><%=p.getDescripcion() %></p>

@@ -2,11 +2,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html itemscope itemtype="http://schema.org/Article">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Guia Walt Disney World Fan</title>
+<title>Guia Walt Disney World Fan/Honey, I Shrunk The Kids: Movie Set Adventure</title>
+
+
+<!-- Añade las tres etiquetas siguientes en la sección "head". -->
+<meta itemprop="name" content="Guia Walt Disney World Fan - atraccion de parque">
+<meta itemprop="description" content="Aqui va una pequeña descripcion de la pagina atraccion resultante">
+<meta itemprop="image" content="http://lorempixel.com/output/technics-q-c-200-200-2.jpg">
+
+
     <!-- Bootstrap core CSS -->
     <link href="js/bootstrap-media-lightbox.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -54,9 +62,9 @@
 	  <p><em>Probando el livepage.</em></p>
 	  	
      <div id="social">
-     <a class="facebookBtn smGlobalBtn" href="https://www.facebook.com/sharer/sharer.php?u=http://www.example.com" ></a>
-      <a class="twitterBtn smGlobalBtn" href="http://twitter.com/home?status=http://www.example.com" ></a>
-      <a class="googleplusBtn smGlobalBtn" href="https://plus.google.com/share?url=http://www.example.com"></a>
+     <a class="facebookBtn smGlobalBtn" href="https://www.facebook.com/sharer/sharer.php?u=http://gwdwfan-miejemplojesfe.rhcloud.com/atraccion.jsp" ></a>
+      <a class="twitterBtn smGlobalBtn" href="http://twitter.com/home?status=http://gwdwfan-miejemplojesfe.rhcloud.com/atraccion.jsp" ></a>
+      <a class="googleplusBtn smGlobalBtn" href="https://plus.google.com/share?url=http://gwdwfan-miejemplojesfe.rhcloud.com/atraccion.jsp"></a>
 
     </div>
     </div>

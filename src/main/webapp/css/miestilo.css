@@ -107,11 +107,20 @@ text-shadow:5px 5px 10px black;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 50px;
+	color: white;
 	text-transform: none;
 	text-decoration: none;
 	letter-spacing: -0.05em;
 	word-spacing: -0.02em;
 	line-height: initial;
+	background: rgba(25,114,215,1);
+	background: -moz-linear-gradient(left, rgba(25,114,215,1) 0%, rgba(54,146,231,0.01) 77%, rgba(54,146,231,0) 78%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(25,114,215,1)), color-stop(77%, rgba(54,146,231,0.01)), color-stop(78%, rgba(54,146,231,0)));
+	background: -webkit-linear-gradient(left, rgba(25,114,215,1) 0%, rgba(54,146,231,0.01) 77%, rgba(54,146,231,0) 78%);
+	background: -o-linear-gradient(left, rgba(25,114,215,1) 0%, rgba(54,146,231,0.01) 77%, rgba(54,146,231,0) 78%);
+	background: -ms-linear-gradient(left, rgba(25,114,215,1) 0%, rgba(54,146,231,0.01) 77%, rgba(54,146,231,0) 78%);
+	background: linear-gradient(to right, rgba(25,114,215,1) 0%, rgba(54,146,231,0.01) 77%, rgba(54,146,231,0) 78%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1972d7', endColorstr='#3692e7', GradientType=1 );
 }
 #titulozona  {
 	 font-family: 'Fjalla One', sans-serif;
@@ -123,6 +132,15 @@ text-shadow:5px 5px 10px black;
 	letter-spacing: -0.05em;
 	word-spacing: -0.02em;
 	line-height: initial;
+	color: white;
+	background: rgba(25,114,215,1);
+	background: -moz-linear-gradient(left, rgba(25,114,215,1) 0%, rgba(54,146,231,0.01) 77%, rgba(54,146,231,0) 78%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(25,114,215,1)), color-stop(77%, rgba(54,146,231,0.01)), color-stop(78%, rgba(54,146,231,0)));
+	background: -webkit-linear-gradient(left, rgba(25,114,215,1) 0%, rgba(54,146,231,0.01) 77%, rgba(54,146,231,0) 78%);
+	background: -o-linear-gradient(left, rgba(25,114,215,1) 0%, rgba(54,146,231,0.01) 77%, rgba(54,146,231,0) 78%);
+	background: -ms-linear-gradient(left, rgba(25,114,215,1) 0%, rgba(54,146,231,0.01) 77%, rgba(54,146,231,0) 78%);
+	background: linear-gradient(to right, rgba(25,114,215,1) 0%, rgba(54,146,231,0.01) 77%, rgba(54,146,231,0) 78%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1972d7', endColorstr='#3692e7', GradientType=1 );
 }
 @media (max-width: 767px) {
   body{
