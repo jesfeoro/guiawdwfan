@@ -7,11 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guia Walt Disney World Fan/Honey, I Shrunk The Kids: Movie Set Adventure</title>
-
+<meta name="description" content="Aqui va una pequeña descripcion de la pagina atraccion resultante(name)">
 
 <!-- Añade las tres etiquetas siguientes en la sección "head". -->
 <meta itemprop="name" content="Guia Walt Disney World Fan - atraccion de parque">
-<meta itemprop="description" content="Aqui va una pequeña descripcion de la pagina atraccion resultante">
+<meta itemprop="description" content="Aqui va una pequeña descripcion de la pagina atraccion resultante(itempro)">
 <meta itemprop="image" content="http://lorempixel.com/output/technics-q-c-200-200-2.jpg">
 
 
