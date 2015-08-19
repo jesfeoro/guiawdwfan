@@ -15,6 +15,7 @@
 <!-- El canónico siempre debe ser la página actual -->
 <link rel="canonical" href="http://gwdwfan-miejemplojesfe.rhcloud.com/atraccion.jsp" />
 
+<meta name="robots" content="NOODP">
 <!-- Añade las tres etiquetas siguientes en la sección "head". -->
 <meta itemprop="name" content="Guia Walt Disney World Fan - atraccion de parque">
 <meta itemprop="description" content="Aqui va una pequeña descripcion de la pagina atraccion resultante(itempro)">
@@ -24,8 +25,8 @@
 <meta property="og:title" content="Guia Walt Disney World Fan - atraccion de parque(og)" /> 
 <meta property="og:type" content="article" /> 
 <meta property="og:url" content="http://gwdwfan-miejemplojesfe.rhcloud.com/atraccion.jsp" />
-<meta property="og:image" content="http://oropensando.com/imagen.jpg" />
-<meta property="og:description" content="Otra web de desarrollo web" /> 
+<meta property="og:image" content="http://lorempixel.com/output/technics-q-c-200-200-2.jpg" />
+<meta property="og:description" content="Aqui va una pequeña descripcion de la pagina atraccion resultante(og)" /> 
 <meta property="og:site_name" content="Guia Walt Disney Fan" />
 <meta property="og:locale" content="es_ES">
 
