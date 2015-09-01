@@ -1,20 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="modelo.Atraccion"%><%@page import="modelo.ImagenA"%><%@page import="java.util.Iterator"%><%@page import="java.util.Map"%>
 <%@page import="java.util.Map.Entry"%><%@page import="java.net.URLEncoder"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%!Atraccion at; %>
 <% at= (Atraccion)request.getAttribute("atrac"); 
 String valor = URLEncoder.encode(at.getNombre(), "UTF-8");
 String url = request.getRequestURL().toString();
 String baseURL = url.substring(0, url.length() - request.getRequestURI().length()) +
 request.getContextPath() + "/"+"Atrac?atraccion="+valor; %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="es-ES" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/Blog">
-<head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Compatibilidad de el odioso Internet Explorer -->
- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<html lang="en" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/Blog">
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
 <title>Guia Walt Disney World Fan/<%=at.getNombre() %></title>
 <meta name="description" content="<%=at.getBDescripcion()%>">
