@@ -1,46 +1,53 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-   %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="modelo.Atraccion"%><%@page import="modelo.ImagenA"%><%@page import="java.util.Iterator"%><%@page import="java.util.Map"%>
+<%@page import="java.util.Map.Entry"%><%@page import="java.net.URLEncoder"%>
+<%!Atraccion at; %>
+<% at= (Atraccion)request.getAttribute("atrac"); 
+String valor = URLEncoder.encode(at.getNombre(), "UTF-8");
+String url = request.getRequestURL().toString();
+String baseURL = url.substring(0, url.length() - request.getRequestURI().length()) +
+request.getContextPath() + "/"+"Atrac?atraccion="+valor; %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="es-ES" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/Blog">
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Compatibilidad de el odioso Internet Explorer -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<title>Guia Walt Disney World Fan/Honey, I Shrunk The Kids: Movie Set Adventure</title>
-<meta name="description" content="Aqui va una pequeña descripcion de la pagina atraccion resultante(name)">
+<title>Guia Walt Disney World Fan/<%=at.getNombre() %></title>
+<meta name="description" content="<%=at.getBDescripcion()%>">
 
-<!-- El canónico siempre debe ser la página actual -->
-<link rel="canonical" href="http://gwdwfan-miejemplojesfe.rhcloud.com/atraccion.jsp" />
+
 
 <meta name="robots" content="NOODP">
 <!-- Añade las tres etiquetas siguientes en la sección "head". -->
-<meta itemprop="name" content="Guia Walt Disney World Fan - atraccion de parque">
-<meta itemprop="description" content="Aqui va una pequeña descripcion de la pagina atraccion resultante(itempro)">
-<meta itemprop="image" content="http://lorempixel.com/output/technics-q-c-200-200-2.jpg">
+<meta itemprop="name" content="Guia Walt Disney World Fan - <%=at.getNombre() %>">
+<meta itemprop="description" content="<%=at.getBDescripcion()%>">
+<meta itemprop="image" content="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/<%=at.getImagenG() %>">
 
 <!-- Open Graph para Facebook--> 
-<meta property="og:title" content="Guia Walt Disney World Fan - atraccion de parque(og)" /> 
+<meta property="og:title" content="Guia Walt Disney World Fan - <%=at.getNombre() %>" /> 
 <meta property="og:type" content="article" /> 
-<meta property="og:url" content="http://gwdwfan-miejemplojesfe.rhcloud.com/atraccion.jsp" />
-<meta property="og:image" content="http://lorempixel.com/output/technics-q-c-200-200-2.jpg" />
-<meta property="og:description" content="Aqui va una pequeña descripcion de la pagina atraccion resultante(og)" /> 
+<meta property="og:url" content="<%=baseURL %> " />
+<meta property="og:image" content="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/<%=at.getImagenG() %>" />
+<meta property="og:description" content="<%=at.getBDescripcion()%>" /> 
 <meta property="og:site_name" content="Guia Walt Disney Fan" />
 <meta property="og:locale" content="es_ES">
 
  
 <!-- Twitter Card --> 
 <meta name="twitter:card" content="summary_large_image">  
-<meta name="twitter:title" content="Guia Walt Disney World Fan/Honey, I Shrunk The Kids: Movie Set Adventure"> 
-<meta name="twitter:description" content="Aqui va una pequeña descripcion de la pagina atraccion resultante(twitter)">  
-<meta name="twitter:image:src" content="http://lorempixel.com/output/technics-q-c-200-200-2.jpg">
-
+<meta name="twitter:title" content="Guia Walt Disney World Fan - <%=at.getNombre() %>"> 
+<meta name="twitter:description" content="<%=at.getBDescripcion()%>">  
+<meta name="twitter:image:src" content="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/<%=at.getImagenG() %>">
     <!-- Bootstrap core CSS -->
-    <link href="js/bootstrap-media-lightbox.css" rel="stylesheet">
+    
+    
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href ="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="js/bootstrap-media-lightbox.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <!--<script src="./Jumbotron Template for Bootstrap_files/ie-emulation-modes-warning.js"></script>-->
@@ -59,6 +66,7 @@
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
      <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <link href="http://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
+ 
         <script src="https://apis.google.com/js/platform.js" async defer>
       {lang: 'es'}
     </script>
@@ -77,111 +85,74 @@
 <div class="container">
   <div class="row"  >
     <div class="col-md-12">
-     <!-- <img src="https://drive.google.com/uc?export=download&id=0B1P7AQivZakEazR0a3UzNGszZW8" class="img-responsive img-rounded" alt="" style="box-shadow:  5px 5px 12px 0px rgba(0, 0, 0, 1.46); border: 1px solid whitesmoke;"> -->
-      <img src="http://i.minus.com/iHyUz4VhwLiSO.jpg" class="img-responsive img-rounded" alt="" style="box-shadow:  5px 5px 12px 0px rgba(0, 0, 0, 1.46); border: 1px solid whitesmoke;"> 
-      <h2>Honey, I Shrunk The Kids: Movie Set Adventure</h2>
-      <p><em>Go on one of 54 unique Star Wars adventures on this thrilling Walt Disney World ride.</em></p>
-	  <p><em>Probando el livepage.</em></p>
+      <img src="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/<%=at.getImagenG() %>" class="img-responsive img-rounded" alt="" style="box-shadow:  5px 5px 12px 0px rgba(0, 0, 0, 1.46); border: 1px solid whitesmoke; width: inherit;">
+      <h2 id="titulocomun"><%=at.getNombre() %></h2>
+      <p><em><%=at.getBDescripcion() %></em></p>
 	  	
      <div id="social">
-     <a class="facebookBtn smGlobalBtn" href="https://www.facebook.com/sharer/sharer.php?u=http://gwdwfan-miejemplojesfe.rhcloud.com/atraccion.jsp" ></a>
-      <a class="twitterBtn smGlobalBtn" href="http://twitter.com/home?status=http://gwdwfan-miejemplojesfe.rhcloud.com/atraccion.jsp" ></a>
-      <a class="googleplusBtn smGlobalBtn" href="https://plus.google.com/share?url=http://gwdwfan-miejemplojesfe.rhcloud.com/atraccion.jsp"></a>
+     <a class="facebookBtn smGlobalBtn" href="https://www.facebook.com/sharer/sharer.php?u=<%=baseURL %>" ></a>
+      <a class="twitterBtn smGlobalBtn" href="http://twitter.com/home?status=<%=baseURL %>" ></a>
+      <a class="googleplusBtn smGlobalBtn" href="https://plus.google.com/share?url=<%=baseURL %>"></a>
 
     </div>
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
-         <div class="panel-heading">
-             <p> <i class="fa fa-info-circle fa-2x" ></i>  Descripción de la atracción</p>
-        </div>
-        <div class="panel-body">
-            <div class="col-md-4">
-           
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <td><p style="font-size:15px"><b>John Doe </b><i class="fa fa-map-marker fa-lg"></i></p></td>
-                    <td>john@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>Mary Moe  <i class="fa fa-info-circle"></i>fasdfasdfasd</td>
-                    <td>mary@example.comfsdafasgsdgfsdfgsfggsdgfdsgfsgfdsfg</td>
-                  </tr>
-                  <tr>
-                    <td>July Dooleyfdfdf </td>
-                    <td>july@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>July Dooleyfdfdf </td>
-                    <td>july@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>July Dooleyfdfdf </td>
-                    <td>july@example.com</td>
-                  </tr>
-                </tbody>
-              </table>
-          </div>
-          <div class="col-md-4">
-            <p>Campos 2</p>
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <td>John Doe</td>
-                    <td>john@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>Mary Moe</td>
-                    <td>mary@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>July Dooleyfdfdf </td>
-                    <td>july@example.com</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p>Campos 2.1</p>
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <td>John Doe</td>
-                    <td>john@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>Mary Moe</td>
-                    <td>mary@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>July Dooleyfdfdf </td>
-                    <td>july@example.com</td>
-                  </tr>
-                </tbody>
-              </table>
-          </div>  
-          <div class="col-md-4">
-          <p>Campos 3</p>
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <td>John Doe</td>
-                    <td>john@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>Mary Moe</td>
-                    <td>mary@example.com</td>
-                  </tr>
-                  <tr>
-                    <td>July Dooleyfdfdf </td>
-                    <td>july@example.com</td>
-                  </tr>
-                </tbody>
-              </table>
-          </div>    
+   <!--       <div class="panel-heading">
+             <p style="font-size: 18px;">  <b >DETALLES</b> </p>
+        </div>-->
+              <div class="panel-body">
+	  <%    String []caracteristica  = at.getTipos();
+			Map<Integer,Atraccion>Micaracter =at.getCaracter();
+ 			for (int j = 0; j < caracteristica.length; j++) {%>
+ 	            <div class="col-md-6">
+ 	            <div class="panel panel-info">
+ 	             <div class="panel-heading">
+ 	           		<p><%=caracteristica[j].toUpperCase()%></p>
+ 	           	</div>
+ 	           	<div class="panel-body">	
+ 	              <table class="table">
+ 	                <tbody>
+
+			<% 	Iterator it = Micaracter.keySet().iterator();
+				while(it.hasNext()){
+						  Integer key = (Integer) it.next();
+						  Atraccion m= Micaracter.get(key);
+						  if(caracteristica[j].equals(m.getCaracteristica())) { %>
+					  <tr>
+	                    <td><p style="font-size:13px"><b><%=m.getTipoC() %> </b></p></td>
+	                        <%if(m.getValorC().equals("Si")){ %>
+	                    <td><i class="fa fa-check-circle-o fa-2x" style="color: #270;"></i></td>
+	                    
+						   <%}else if(m.getValorC().equals("No")){ %>
+		                    <td><i class="fa fa-times-circle-o fa-2x"style="color: #D8000C;"></i></td>  
+							<%}else{  %>
+							<td><p style="font-size:13px"><%=m.getValorC() %></p></td>  
+						 <% } %>
+					 </tr>
+				<%  }}%>
+					</tbody>
+                </table>
+               </div>
+              </div>  
+             </div>		 
+		<% 	}
+		
+			Atraccion m= Micaracter.get(19);
+			if (m.getValorC().equals("Si")){ %>
+			<div class="col-md-12">
+				<p style="font-size:13px;"><i class="fa fa-exclamation-triangle fa-3x" style="color: darkorange; float:left; margin-right: 10px;"></i>  Por razones de 
+				seguridad, debe estar en buen estado de salud y no debe tener presión arterial alta, problemas
+				cardiacos, de columna o de cuello, enfermedad motriz ni cualquier otra afección que pueda
+				agravarse por esta atracción</p>
+			</div> 
+		<%} %>
+  			   
         </div>
       </div>
     </div>
@@ -190,34 +161,33 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <p><b>The Seven Dwarfs Mine Train</b> takes guests on a rollicking, musical ride into the mine “where a million diamonds shine.” The coaster features a first-of-its kind ride system with a train of ride vehicles that swing back and forth, responding to every twist and turn of the track. The journey is  accompanied by music from the classic Disney film and animated figures of Snow White and the Dwarfs. <br><br>
-
-      Announced on January 18 2011, the Seven Dwarfs Mine Train is part of the 2012/2013 expansion of Fantasyland at the Magic Kingdom that will see the land double in size. The coaster was not part of the originally announced plans back on September 12 2009, but will take the place of several proposed interactive Disney Princess meet and greets. <br></p>
-
-      <h3>Details</h3>
-
-     <p> Opening date: The attraction was announced on January 18 2011, with an expected opening date in 2013.
-
-      Concept art:Concept art of the attraction is available here</p>
+		<%=at.getDescripcion() %>
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
         <p style="text-align: center;   font-size: xx-large;"> Imagenes de la atracción</p>
+        <%Map<Integer,ImagenA>Miatrac =at.getImagen(); 
+         	Iterator it2 = Miatrac.keySet().iterator();
+				while(it2.hasNext()){
+						  Integer key = (Integer) it2.next();
+						  ImagenA img= Miatrac.get(key); %>
         <div class="col-md-4" style="margin-bottom: 18px; text-align: -webkit-center;">
           <div class="polaroid">
-                <p>Sarah, Dec '02</p>
-                <a class="lightbox" href="http://i.minus.com/ibbPo1apKEPh93.jpg" title="Esto es la imagen 1"><!--Este el grande-->
-                  <img src="https://drive.google.com/uc?export=download&id=0B1P7AQivZakEZ204T2xjcm85Q2c"><!-- Este el pequeño -->
+                <p><%=img.getDescripcion() %></p>
+                <a class="lightbox" href="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/<%=img.getImagenG() %>"><!--Este el grande-->
+                  <img src="https://drive.google.com/uc?export=view&id=<%=img.getImagenP() %>"><!-- Este el pequeño -->
                 </a>
           </div>
         </div> 
-        <div class="col-md-4" style="margin-bottom: 18px; text-align: -webkit-center;">
+        <%} %>
+  <!--       <div class="col-md-4" style="margin-bottom: 18px; text-align: -webkit-center;">
           <div class="polaroid">
-                <p>Sarah, Dec '02</p>
-                <a class="lightbox" href="http://lorempixel.com/output/people-q-c-800-600-1.jpg" title="Esto es la imagen 2">
+                <p>Sarah, Dec '02</p>     
+                <a class="lightbox" href="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/StarTours_2.jpg" title="Esto es la imagen 2" >
                   <img src="http://i4.minus.com/jbkYbOncSecoFt.jpg">
                 </a>
           </div>
@@ -227,10 +197,20 @@
                 <p>Sarah, Dec '02</p>
                 <img src="http://lorempixum.com/200/200/people/1">
           </div>
-        </div>      
+        </div>
+        -->       
 	  </div>
 	</div>
 </div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<%=at.getSonido() %>
+		</div>
+	</div>
+</div>
+<br>
+<br>
 <script>
 // This code goes ABOVE the main HTML Comment Box code!
 // replace the text in the single quotes below to customize labels.
@@ -238,7 +218,7 @@ hcb_user = {
     // L10N
     comments_header : 'Comentarios',
     name_label : 'Nombre',
-    content_label: 'Entra tu comentario aqui',
+    content_label: 'Escribe tu comentario aqui',
     submit : 'Comentario',
     logout_link : '<img title="log out" src="//bawksbox.com/static/images/door_out.png" alt="[logout]" class="hcb-icon"/>',
     admin_link : '<img src="//bawksbox.com/static/images/door_in.png" alt="[login]" class="hcb-icon"/>',

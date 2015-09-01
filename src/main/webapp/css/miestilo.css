@@ -11,6 +11,10 @@ body{
 
 
 }
+ul {
+	font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+}
 p{
  font-family: 'Raleway', sans-serif;
   font-size: 18px;

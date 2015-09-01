@@ -11,12 +11,13 @@
 
               Para información oficial sobre Walt Disney World Resort, www.disney.com<br>
 
-              www.GuiaWdWFan.com® - Todos los derechos reservados  2014</h6>
+              www.GuiaWdWFan.com® - Todos los derechos reservados  2015</h6>
         </div>        
       </div>
  </div>
       </footer>
    
- <script src="js/bootstrap-media-lightbox.js"></script>   
+ 
  <script src="js/bootstrap.min.js"></script>
  <script src="js/miscriptg.js"></script>
+ <script src="js/bootstrap-media-lightbox.js"></script>  

@@ -1,4 +1,4 @@
-<%@page import="modelo.Parque"%><%@page import="modelo.Atraccion"%>
+<%@page import="modelo.Parque"%><%@page import="modelo.Atraccion"%><%@page import="java.net.URLEncoder"%>
 <%@page import="java.util.Iterator"%><%@page import="java.util.Map"%><%@page import="java.util.Map.Entry"%>
 
 <%!Parque p; %>
@@ -84,11 +84,12 @@
 				
 				if(key==valor.getCodigoZona()) { %>
 				  <div class="col-sm-4 col-xs-6 text-center ng-scope">
-			          <h4><a href="Atrac?nombre=<%=valor.getNombre() %>">
+			          <h4><a href="Atrac?atraccion=<%=valor.getNombre() %>">
 			            <img   style="width:120px;" class="img-circle img-responsive img-thumbnail" 
 			            		src="https://drive.google.com/uc?export=download&id=<%=valor.getImagenP() %>">
 			          </a></h4>
-			          <h4 class="text-center"><a href="Atrac?nombre=<%=valor.getNombre() %>" ><%=valor.getNombre() %></a></h4>
+			          <%String texto = URLEncoder.encode(valor.getNombre(), "UTF-8"); %>
+			          <h4 class="text-center"><a href="Atrac?atraccion=<%=texto %>" ><%=valor.getNombre() %></a></h4>
 			      </div>
 			 <% }
 		   } %>
@@ -113,8 +114,9 @@
 			   		<div class="col-sm-4 col-xs-6" style="margin-bottom:16px;">
 			        <img id="d<%=elemento %>"  src="https://drive.google.com/uc?export=download&id=<%=valor.getImagenP() %>" width="300" height="300"  />
 						<div class="contenthover" >
-						    <h3><%=valor.getNombre() %></h3>	
-						    <p><a href="Atrac?nombre=<%=valor.getNombre() %>" class="mybutton">Acceder</a></p>
+						    <h3><%=valor.getNombre() %></h3>
+						    <%String texto = URLEncoder.encode(valor.getNombre(), "UTF-8"); %>	
+						    <p><a href="Atrac?atraccion=<%=texto %>" class="mybutton">Acceder</a></p>
 						</div>
 	  				</div>
 				 <%elemento++; }
