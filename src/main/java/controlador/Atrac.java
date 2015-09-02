@@ -1,9 +1,6 @@
 package controlador;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Iterator;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.Atraccion;
-import modelo.ImagenA;
 /**
  * Servlet implementation class Atrac
  */
@@ -42,7 +38,7 @@ public class Atrac extends HttpServlet {
 		long stopTime = System.currentTimeMillis();
 	    long res = stopTime - startTime;
 	    System.out.println("TIEMPO --> "+res+" MiliSegundos");
-	/*    if (at.getNombre() == null || at.getNombre() == "" ) {
+	    if (at.getNombre() == null || at.getNombre() == "" ) {
 	    	
 			String motivo ="No existe ninguna atracción con ese nombre en nuestra Base de Datos";
 	    	request.setAttribute("motivo", motivo);		
@@ -50,14 +46,14 @@ public class Atrac extends HttpServlet {
 	    }else {
 	    	request.setAttribute("atrac", at);		
 			request.getRequestDispatcher("atraccion.jsp").forward(request, response);
-	    }*/
+	    }
 	 
 	    /* Quitar drive y poner photobucket a las fotos y cambiarlo en la base de datos
 	     * Rellenar con el objeto atraccion las distintas partes del apartado de redes sociales
 	     * Rellenar atracciones indiana jones y the hounted mansion.
 	     * Antes del viernes 4
 	     * */
-	    PrintWriter out = response.getWriter();
+/*	    PrintWriter out = response.getWriter();
 		
 		String []caracteristica  = at.getTipos();
 		Map<Integer,Atraccion>Micaracter =at.getCaracter();
@@ -87,7 +83,7 @@ public class Atrac extends HttpServlet {
 
 		} 
 		//out.println(atrac);
-		out.println("Datos cargados");
+		out.println("Datos cargados");*/
 		
 		
 		
