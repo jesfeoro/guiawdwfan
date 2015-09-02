@@ -1,6 +1,9 @@
 package controlador;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.Atraccion;
+import modelo.ImagenA;
 /**
  * Servlet implementation class Atrac
  */
@@ -38,7 +42,7 @@ public class Atrac extends HttpServlet {
 		long stopTime = System.currentTimeMillis();
 	    long res = stopTime - startTime;
 	    System.out.println("TIEMPO --> "+res+" MiliSegundos");
-	    if (at.getNombre() == null || at.getNombre() == "" ) {
+	/*    if (at.getNombre() == null || at.getNombre() == "" ) {
 	    	
 			String motivo ="No existe ninguna atracción con ese nombre en nuestra Base de Datos";
 	    	request.setAttribute("motivo", motivo);		
@@ -46,34 +50,44 @@ public class Atrac extends HttpServlet {
 	    }else {
 	    	request.setAttribute("atrac", at);		
 			request.getRequestDispatcher("atraccion.jsp").forward(request, response);
-	    }
+	    }*/
 	 
 	    /* Quitar drive y poner photobucket a las fotos y cambiarlo en la base de datos
 	     * Rellenar con el objeto atraccion las distintas partes del apartado de redes sociales
 	     * Rellenar atracciones indiana jones y the hounted mansion.
 	     * Antes del viernes 4
 	     * */
-	    
+	    PrintWriter out = response.getWriter();
 		
-	/*	String []caracteristica  = at.getTipos();
+		String []caracteristica  = at.getTipos();
 		Map<Integer,Atraccion>Micaracter =at.getCaracter();
 			for (int j = 0; j < caracteristica.length; j++) {
-		System.out.println(caracteristica[j].toUpperCase());
+				out.println(caracteristica[j].toUpperCase());
 		Iterator it = Micaracter.keySet().iterator();
 		while(it.hasNext()){
 				  Integer key = (Integer) it.next();
 				  Atraccion m= Micaracter.get(key);
 				  if(caracteristica[j].equals(m.getCaracteristica())) {
-				  System.out.println(m.getTipoC()+" -- "+m.getValorC());
+				  out.println(m.getTipoC()+" -- "+m.getValorC());
 				  }
 		}
 		System.out.println();
 	}
 	Atraccion m= Micaracter.get(19);
-	System.out.println(m.getTipoC()+" -- "+m.getValorC());
-		PrintWriter out = response.getWriter();
-		out.println(atrac);
-		out.println("Datos cargados");*/
+	out.println(m.getTipoC()+" -- "+m.getValorC());
+	out.println(at.getDescripcion());
+	Map<Integer,ImagenA>Miatrac =at.getImagen(); 
+ 	Iterator it2 = Miatrac.keySet().iterator();
+		while(it2.hasNext()){
+				  Integer key = (Integer) it2.next();
+				  ImagenA img= Miatrac.get(key);
+				  out.println(img.getDescripcion()) ;
+				  out.println(img.getImagenG()); 
+				  out.println(img.getImagenP()) ;
+
+		} 
+		//out.println(atrac);
+		out.println("Datos cargados");
 		
 		
 		
