@@ -7,23 +7,50 @@ String valor = URLEncoder.encode(at.getNombre(), "UTF-8");
 String url = request.getRequestURL().toString();
 String baseURL = url.substring(0, url.length() - request.getRequestURI().length()) +
 request.getContextPath() + "/"+"Atrac?atraccion="+valor; %>
-
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/Blog">
 <head>
 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
 <title>Guia Walt Disney World Fan/<%=at.getNombre() %></title>
 <meta name="description" content="<%=at.getBDescripcion()%>">
+    <!-- Bootstrap core CSS -->
+    
+    
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href ="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="js/bootstrap-media-lightbox.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--<script src="./Jumbotron Template for Bootstrap_files/ie-emulation-modes-warning.js"></script>-->
 
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--  CSS Iconos-->
+    <link rel="stylesheet" href="font-awesome-4.2.0/css/font-awesome.css">
+  <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script> 
+   
+    <link rel="stylesheet" href="css/miestilo.css">
+    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
+     <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
+ 
+        <script src="https://apis.google.com/js/platform.js" async defer>
+      {lang: 'es'}
+    </script>
+      <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>       
+  <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+  
+   <link href="http://ajax.googleapis.com//ajax/libs/jqueryui/1.7.2/themes/start/jquery-ui.css" rel="stylesheet">
 
-
-<meta name="robots" content="NOODP">
-<!-- Añade las tres etiquetas siguientes en la sección "head". -->
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <!-- Añade las tres etiquetas siguientes en la sección "head". -->
 <meta itemprop="name" content="Guia Walt Disney World Fan - <%=at.getNombre() %>">
 <meta itemprop="description" content="<%=at.getBDescripcion()%>">
 <meta itemprop="image" content="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/<%=at.getImagenG() %>">
@@ -43,46 +70,10 @@ request.getContextPath() + "/"+"Atrac?atraccion="+valor; %>
 <meta name="twitter:title" content="Guia Walt Disney World Fan - <%=at.getNombre() %>"> 
 <meta name="twitter:description" content="<%=at.getBDescripcion()%>">  
 <meta name="twitter:image:src" content="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/<%=at.getImagenG() %>">
-    <!-- Bootstrap core CSS -->
-    
-    
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href ="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="js/bootstrap-media-lightbox.css" rel="stylesheet">
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!--<script src="./Jumbotron Template for Bootstrap_files/ie-emulation-modes-warning.js"></script>-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!--  CSS Iconos-->
-    <link rel="stylesheet" href="font-awesome-4.2.0/css/font-awesome.css">
-  <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script> 
-	 <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>    
-    <link rel="stylesheet" href="css/miestilo.css">
-    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
-     <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <link href="http://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
- 
-        <script src="https://apis.google.com/js/platform.js" async defer>
-      {lang: 'es'}
-    </script>
-      <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>       
-  <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
-  
-   <link href="http://ajax.googleapis.com//ajax/libs/jqueryui/1.7.2/themes/start/jquery-ui.css" rel="stylesheet">
-
-      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
 </head>
-
 <body>
 <%@ include file="/cabecera.jsp" %>
-
-
 <div class="container">
   <div class="row"  >
     <div class="col-md-12">

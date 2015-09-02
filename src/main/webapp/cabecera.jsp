@@ -7,8 +7,6 @@
 		u1 = new Usuario("Anonimo",0);
 		
 	}%>
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
 	    <div class="container-fluid">
@@ -275,9 +273,7 @@
 	                  <span class="glyphicon form-control-feedback"></span>  
 	                </div>            
 	            </div>
-	             <input type="hidden" class="form-control" name="comprobar" id="comprobar" />
-	        
-	        
+	             <input type="hidden" class="form-control" name="comprobar" id="comprobar" />    
 	   </div>
 	         <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reloadCaptcha()" id="cerrar">Cerrar</button>
