@@ -186,7 +186,7 @@ public class Atraccion {
 		//String atrac="Star Tours: The Adventures Continue";
 		try {
 			// La sentencia sql de abajo me selecciona el nombre de los campos de una tabla.
-			ResultSet rs =con.devuelveRS("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'tiposcarac' AND table_schema = 'gparques' ORDER BY ORDINAL_POSITION;"); 
+			ResultSet rs =con.devuelveRS("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = 'tiposcarac' AND table_schema = 'gwdwfan' ORDER BY ORDINAL_POSITION;"); 
 
 			PreparedStatement ps2 = con.devuelvePS("Select atrac.* from tiposcarac as atrac " +
 										"join atraccion on  atrac.CodigoAtraccion=atraccion.CodigoAtraccion " +
