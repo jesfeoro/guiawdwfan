@@ -20,7 +20,7 @@ $(document).ready(function(){
 	    $("#spotlight").autocomplete({
 			source: function(request, response) {
             $.ajax({
-                    url : "ControladorAuto",
+                    url : "ConBusqueda",
                     type : "GET",
                     data : {
                             term : request.term

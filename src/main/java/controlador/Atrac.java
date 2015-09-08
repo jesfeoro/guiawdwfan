@@ -48,10 +48,8 @@ public class Atrac extends HttpServlet {
 			request.getRequestDispatcher("atraccion.jsp").forward(request, response);
 	    }
 	 
-	    /* Quitar drive y poner photobucket a las fotos y cambiarlo en la base de datos
-	     * Rellenar con el objeto atraccion las distintas partes del apartado de redes sociales
-	     * Rellenar atracciones indiana jones y the hounted mansion.
-	     * Antes del viernes 4
+	    /* 
+	     *Empezar con Restaurantes
 	     * */
 /*	    PrintWriter out = response.getWriter();
 		

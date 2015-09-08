@@ -63,7 +63,7 @@
 	        
 	        <li><a href="Calendario2.jsp">Tu Planning</a></li>
 	
-	        <form class="navbar-form navbar-right " role="form" id="search-form" action="Busqueda" method="post">
+	        <form class="navbar-form navbar-right " role="form" id="search-form" action="Busquedas" method="post">
 	         <div class="form-group">
 	            <input type="text" class="form-control empty" id="spotlight" name="spotlight" placeholder="&#xF002; " style="font-family:Arial, FontAwesome">
 	            

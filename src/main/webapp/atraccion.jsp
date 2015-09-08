@@ -171,7 +171,7 @@ request.getContextPath() + "/"+"Atrac?atraccion="+valor; %>
           <div class="polaroid">
                 <p><%=img.getDescripcion() %></p>
                 <a class="lightbox" href="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/<%=img.getImagenG() %>"><!--Este el grande-->
-                  <img src="https://drive.google.com/uc?export=view&id=<%=img.getImagenP() %>"><!-- Este el pequeño -->
+                  <img src="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/<%=img.getImagenP() %>"><!-- Este el pequeño -->
                 </a>
           </div>
         </div> 

@@ -59,7 +59,7 @@
 <div class="container">
   <div class="row"  >
     <div class="col-md-12">
-      <img src="https://drive.google.com/uc?export=download&id=<%=p.getImagen() %>" class="img-responsive img-rounded" alt="" style="box-shadow:  5px 5px 12px 0px rgba(0, 0, 0, 1.46); border: 1px solid whitesmoke;"> 
+      <img src="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/<%=p.getImagen() %>" class="img-responsive img-rounded" alt="" style="box-shadow:  5px 5px 12px 0px rgba(0, 0, 0, 1.46); border: 1px solid whitesmoke; width: inherit;"> 
       <br>
       <h1 id="titulocomun"><%=p.getNombre() %></h1><br>
       <p><%=p.getDescripcion() %></p>
@@ -86,7 +86,7 @@
 				  <div class="col-sm-4 col-xs-6 text-center ng-scope">
 			          <h4><a href="Atrac?atraccion=<%=valor.getNombre() %>">
 			            <img   style="width:120px;" class="img-circle img-responsive img-thumbnail" 
-			            		src="https://drive.google.com/uc?export=download&id=<%=valor.getImagenP() %>">
+			            		src="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/<%=valor.getImagenP() %>">
 			          </a></h4>
 			          <%String texto = URLEncoder.encode(valor.getNombre(), "UTF-8"); %>
 			          <h4 class="text-center"><a href="Atrac?atraccion=<%=texto %>" ><%=valor.getNombre() %></a></h4>
@@ -112,7 +112,7 @@
 				
 				if(key==valor.getCodigoZona()) { %>
 			   		<div class="col-sm-4 col-xs-6" style="margin-bottom:16px;">
-			        <img id="d<%=elemento %>"  src="https://drive.google.com/uc?export=download&id=<%=valor.getImagenP() %>" width="300" height="300"  />
+			        <img id="d<%=elemento %>"  src="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/<%=valor.getImagenP() %>" width="300" height="300"  />
 						<div class="contenthover" >
 						    <h3><%=valor.getNombre() %></h3>
 						    <%String texto = URLEncoder.encode(valor.getNombre(), "UTF-8"); %>	
