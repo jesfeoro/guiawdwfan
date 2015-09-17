@@ -14,6 +14,7 @@ public class Busqueda {
 	private String tipos;
 	private String direccion;
 	private Map<Integer,Busqueda>pagina;
+	private String imagen;
 	public Busqueda() {
 		super();
 	}
@@ -22,6 +23,7 @@ public class Busqueda {
 		this.nombre = nombre;
 		this.tipos = tipos;
 	}
+	
 	
 	public Busqueda(String nombre, String tipos, String direccion) {
 		super();
@@ -55,8 +57,14 @@ public class Busqueda {
 	public void setPagina(Map<Integer, Busqueda> pagina) {
 		this.pagina = pagina;
 	}
-	public ArrayList<String> getNombres(String nombre)throws Exception{
-        ArrayList<String> list = new ArrayList<String>();
+	public String getImagen() {
+		return imagen;
+	}
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+	public ArrayList<Busqueda> getNombres(String nombre)throws Exception{
+        ArrayList<Busqueda> list = new ArrayList<Busqueda>();
         String data;
         try{   
         		  Conexion conn = new Conexion();
@@ -66,8 +74,8 @@ public class Busqueda {
                   ResultSet rs = ps1.executeQuery();
 
                        while (rs.next()) {
-                                data = rs.getString("NOMBRE");                              
-                                list.add(data);
+                    	   		Busqueda b = new Busqueda(rs.getString(2), rs.getString(3), rs.getString(4));                             
+                                list.add(b);
                        }
                } catch (SQLException e) {
                   System.out.println(e.getMessage()); 

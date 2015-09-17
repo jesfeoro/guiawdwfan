@@ -15,6 +15,7 @@ $(document).ready(function(){
         parallax();
     }); 
 
+
 	$(function() {
 		 
 	    $("#spotlight").autocomplete({
@@ -27,22 +28,32 @@ $(document).ready(function(){
                     },
                     dataType : "json",
                     success : function(data) {
-                            response(data);
+                    	response($.map( data, function( item ){
+                      	return {
+                            nombre: item.nombre,//corresponds with json object built above
+                            tipo: item.tipos,
+                            img: item.direccion
+                          }
+                        }));
                     }
             });},
-			appendTo: $("form:first")
+			appendTo: $("form:first"),
+			/*focus: function( event, ui ) {
+	            $(this).val( ui.item.nombre );
+	            return false;
+	        },*/
+	        select: function( event, ui ) {
+	            $(this).val( ui.item.nombre );
+	            return false;
+	        }
 		});
-	 
-		$("#spotlight").data( "ui-autocomplete" )._renderMenu = function( ul, items ) {
-			var that = this;		
-			ul.attr("class", "nav nav-pills nav-stacked");
-			$.each( items, function( index, item ) {
-				that._renderItemData( ul, item );
-			});
-		};	    
-	 
+	    $("#spotlight") .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+	    	  return $( "<li>" )
+	    	    .data( "ui-autocomplete-item", item )
+	    	    .append( '<a><img src="http://i1095.photobucket.com/albums/i476/jesfeoro/atracciones/'+item.img+'" class="img-responsive img-circle" alt="" style="float:left; margin-right: 5px;" > ' + item.nombre + "<br><span style='font-size:9px;'>" + item.tipo + "</span></a>" )
+	    	    .appendTo( ul );
+	    	};
 	});
-	
 	$('#olvidado').click(function(e) {
         e.preventDefault();
         $('div#form-olvidado').toggle('500');

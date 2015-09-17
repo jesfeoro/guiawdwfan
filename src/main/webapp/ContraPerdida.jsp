@@ -32,7 +32,7 @@
     <![endif]-->
     <!--  CSS Iconos-->
     <link rel="stylesheet" href="font-awesome-4.2.0/css/font-awesome.css">
-    <link rel="stylesheet" href="css/miestilo.css">
+
     <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
     
@@ -45,6 +45,7 @@
    <link href="http://ajax.googleapis.com//ajax/libs/jqueryui/1.7.2/themes/start/jquery-ui.css" rel="stylesheet">
 
       <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+     <link rel="stylesheet" href="css/miestilo.css">
   </head>
   <body>
     	

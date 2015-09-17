@@ -35,7 +35,7 @@ request.getContextPath() + "/"+"Atrac?atraccion="+valor; %>
     <link rel="stylesheet" href="font-awesome-4.2.0/css/font-awesome.css">
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script> 
    
-    <link rel="stylesheet" href="css/miestilo.css">
+
     <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
      <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
@@ -50,6 +50,7 @@ request.getContextPath() + "/"+"Atrac?atraccion="+valor; %>
    <link href="http://ajax.googleapis.com//ajax/libs/jqueryui/1.7.2/themes/start/jquery-ui.css" rel="stylesheet">
 
       <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <link rel="stylesheet" href="css/miestilo.css">
       <!-- Añade las tres etiquetas siguientes en la sección "head". -->
 <meta itemprop="name" content="Guia Walt Disney World Fan - <%=at.getNombre() %>">
 <meta itemprop="description" content="<%=at.getBDescripcion()%>">

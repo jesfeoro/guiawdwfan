@@ -11,7 +11,7 @@
   <div class="container-fluid">
 	    <div class="container-fluid">
         <div class="navbar-header">
-        <a class="navbar-brand" href="index.htm" style="">Guia <span class="titulo">Walt Disney </span>World Fan</a>  
+        <a class="navbar-brand" href="index.jsp" style="">Guia <span class="titulo">Walt Disney </span>World Fan</a>  
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -53,8 +53,8 @@
 	        <li class="dropdown">
 	              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Restaurantes </a>
 	              <ul class="dropdown-menu" role="menu">
-	                 <li><a href="#">Magic KingDom</a></li>
-	                <li><a href="#">Epcot</a></li>
+	                 <li><a href="TiposRestaura?parque=Magic Kingdom">Magic Kingdom</a></li>
+	                <li><a href="TiposRestaura?parque=Epcot">Epcot</a></li>
 	                <li><a href="#">Hollywood Studios</a></li>
 	                <li><a href="#">Animal Kingdom</a></li>
 	                <li><a href="#">Restaurantes en los Hoteles</a></li>

@@ -92,6 +92,7 @@ public class Parque {
 		 	 											rs.getString("atraccion.ImagenP")));
 		 	 	i++;
 			 }
+			 con.getConexion().close();
 			 this.setAtraccion(map2);
 	 
 			 return this;

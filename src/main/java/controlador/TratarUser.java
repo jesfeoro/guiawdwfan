@@ -95,7 +95,7 @@ public class TratarUser extends HttpServlet {
 	}
 	public void LogOut(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 			request.getSession().invalidate();
-			response.sendRedirect("index3.jsp");
+			response.sendRedirect("index.jsp");
 	}
 	public void NuevoUser(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 			PrintWriter out = response.getWriter();
@@ -189,7 +189,7 @@ public class TratarUser extends HttpServlet {
 		session.setAttribute("respuesta", respuesta);
 		//request.setAttribute("respuesta", respuesta);
 		//request.getRequestDispatcher("index3.jsp").forward(request, response);
-		response.sendRedirect("index3.jsp");
+		response.sendRedirect("index.jsp");
 		
 		
 		}
@@ -206,6 +206,6 @@ public class TratarUser extends HttpServlet {
 		session.setAttribute("respuesta", respuesta);
 		//request.setAttribute("respuesta", respuesta);
 		//request.getRequestDispatcher("index3.jsp").forward(request, response);
-		response.sendRedirect("index3.jsp");
+		response.sendRedirect("index.jsp");
 	}
 }
