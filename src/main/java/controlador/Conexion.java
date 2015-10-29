@@ -19,8 +19,8 @@ public class Conexion {
 		this("jdbc:mysql://127.0.0.1/plannerPropio","root","12345");		
 	}*/
 	public Conexion() {
-		this.ConexionLocal();
-		//this.ConexionRemota();	
+		//this.ConexionLocal();
+		this.ConexionRemota();	
 	}
 	public void ConexionLocal() {
 		try {
