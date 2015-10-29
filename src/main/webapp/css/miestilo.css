@@ -502,13 +502,21 @@ a:hover{
   position: relative;
   width: 220px;
 }
- 
+.polaroid span{
+	width: 77px;
+	height: 27px;
+	display: block;
+	position: absolute;
+	top: -12px;
+	left: 70px;
+	background: url(../images/tape.png) no-repeat;
+} 
 .polaroid img {
   border: 10px solid #fff;
   border-bottom: 45px solid #fff;
-  -webkit-box-shadow: 3px 3px 3px #777;
-     -moz-box-shadow: 3px 3px 3px #777;
-          box-shadow: 3px 3px 3px #777;
+  -webkit-box-shadow: 6px 6px 6px #777;
+     -moz-box-shadow: 6px 6px 6px #777;
+          box-shadow: 6px 6px 6px #777;
 }
  
 .polaroid p {
@@ -589,14 +597,14 @@ font-size: small;
 
 }
 .ui-menu .ui-menu-item a.ui-corner-all:hover, .ui-menu .ui-menu-item a.ui-corner-all:focus, .ui-menu .ui-menu-item a.ui-corner-all:active {
-    background:#ff8a00!important;
+    background:#4986f5!important;
     color:#000;
     border-radius:0;
     height:60px;
 }
 
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
-    background: #ff8a00;
+    background: #4986f5;;
     border: none;
     color:#000;
     border-radius:0;
@@ -607,4 +615,13 @@ font-size: small;
     float: left;
     margin-right: 5px;
 }
+	.descripcion{
+	font-size: 16px;
+	margin-top: 10px;	
+	}
+@media (max-width: 400px) {
+	.descripcion{
+		font-size: 14px;
+		margin-top: 10px;	
+	}
 }

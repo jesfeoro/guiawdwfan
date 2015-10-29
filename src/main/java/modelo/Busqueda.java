@@ -141,6 +141,8 @@ public class Busqueda {
 	            		direccion="Atrac?atraccion=";
 	            	}else if(rs1.getString("Tipo").equals("parques")){
 	            		direccion="Parques?parque=";
+	            	}else if(rs1.getString("Tipo").equals("restaurante")){
+	            		direccion="Resta?restaurante=";
 	            	}
 	            	Mipagina.put(n++,new Busqueda(rs1.getString("Nombre"), rs1.getString("Tipo"),direccion));
 	            	

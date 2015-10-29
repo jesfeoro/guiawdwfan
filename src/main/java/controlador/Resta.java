@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.Restaurante;
+
 /**
  * Servlet implementation class Resta
  */
@@ -31,7 +33,21 @@ public class Resta extends HttpServlet {
 		// TODO Auto-generated method stub
 		String resta= request.getParameter("restaurante");
 		PrintWriter out = response.getWriter();
-		out.println("Restaurante es -->"+resta);
+		//out.println("Restaurante es -->"+resta);
+		//System.out.println("EN resta");
+		//System.out.println(resta);
+		Restaurante res = new Restaurante();
+		res = res.getRestaurante(resta);
+		if (res.getNombre() == null || res.getNombre() == "" ) {
+			    	
+					String motivo ="No existe ninguna restaurante con ese nombre en nuestra Base de Datos";
+			    	request.setAttribute("motivo", motivo);		
+					request.getRequestDispatcher("error.jsp").forward(request, response);
+			    }else {
+			    	request.setAttribute("restaura", res);		
+					request.getRequestDispatcher("restaurante.jsp").forward(request, response);
+			    }
+		
 	}
 
 	/**

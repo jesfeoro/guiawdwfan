@@ -1,5 +1,5 @@
 <%@page import="java.util.Iterator"%><%@page import="java.util.Map"%><%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Map.Entry"%><%@page import="modelo.Restaurante"%>
+<%@page import="java.util.Map.Entry"%><%@page import="modelo.Restaurante"%><%@page import="java.net.URLEncoder"%>
 
 
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -51,6 +51,7 @@
 	.contenthover a.mybutton { display:block; float:left; padding:5px 10px; background:#3c9632; color:#fff; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
 	.contenthover a.mybutton:hover { background:#34742d }
 
+
 </style>
   </head>
   <body>    	
@@ -82,14 +83,17 @@
       <%ArrayList<Restaurante> milist =(ArrayList<Restaurante>)request.getAttribute("parquenom");
       Iterator<Restaurante> itr = milist.iterator();
       while(itr.hasNext()){
-    		Restaurante res = itr.next();%>     	
-      	   <div id="micol" class="col-sm-6 col-md-3" style="margin-bottom: 20px;">	
+    		Restaurante res = itr.next();
+    		String valor = URLEncoder.encode(res.getNombre(), "UTF-8");%>     	
+      	   <div id="micol" class="col-sm-6 col-md-3 col-xs-6" >	
       	   	  <div id= "mirow"class="row">  
-		         <a id="midir" href="Resta?restaurante=<%=res.getNombre() %>"><img src="http://lorempixel.com/output/nature-q-c-200-200-10.jpg"  class="img-responsive img-rounded"
+		         <%-- <a id="midir" href="Resta?restaurante=<%=res.getNombre() %>"><img src="http://lorempixel.com/output/nature-q-c-200-200-10.jpg"  class="img-responsive img-rounded"
+		         alt="Generic placeholder thumbnail"></a> --%>
+		         <a id="midir" href="Resta?restaurante=<%=valor %>"><img src="http://i1095.photobucket.com/albums/i476/jesfeoro/restaurantes/<%=res.getImagenP() %>"  class="img-responsive img-rounded"
 		         alt="Generic placeholder thumbnail"></a>
 			      <div  id="micaption" class="caption">
-			        <a href="Resta?restaurante=<%=res.getNombre() %>" style="text-decoration:none"> <p style="font-size: 20px;margin-top: 20px;"><b><%=res.getNombre() %></b></p></a>
-			         <p><%=res.getTipoRes() %></p>
+			        <a href="Resta?restaurante=<%=valor %>" style="text-decoration:none"> <p class="descripcion"><b><%=res.getNombre() %></b></p></a>
+			          <p class="descripcion"><%=res.getTipoRes() %></p>
 			      </div>
 		      </div>
 		   </div>
@@ -106,6 +110,15 @@ console.log("El tipo de parque es-->"+par);
 $( "#miPanel a" ).click(function( event ) {
 	  event.preventDefault();
 	});
+// añadimos esta función para codificar la parte del url que queremos codificar
+function encode(toEncode) {
+    return encodeURIComponent(toEncode)
+        .replace(/!/g, '%21')
+        .replace(/'/g, '%27')
+        .replace(/\(/g, '%28')
+        .replace(/\)/g, '%29')
+        .replace(/\*/g, '%2A');
+}
 function recargar(tipos){
 	$("#miPanel a").each(function (index){ 				
 				if($(this).attr('id')==tipos){					
@@ -131,18 +144,23 @@ function recargar(tipos){
 						$( '#respuesta' ).append("<h2>No Existen Restaurantes de este tipo</h2>");
 					}else{
                  $.each (data, function (dato) {
-                	  /*  console.log ("Elemento "+dato);
+                	  /* console.log ("Elemento "+dato);
                 	    console.log (data[dato]);
                 	    console.log ("parte del objeto (nombre usuario)-->"+data[dato].Nombre); 
-                	    console.log ("data[dato].password =="+data[dato].TipoRes);*/
+                	    console.log ("data[dato].password =="+data[dato].TipoRes);
+						console.log ("Con encode??-->"+encode(data[dato].Nombre).replace(/%20/g,'+'));*/
+						// para codificar la variable usaremos la instruccion de abajo.
+						// con encode codificamos incluso los apostrofes '
+						// y con replace reemplazamos los %20 que no nos interesan por +
 						
-                	   $( '#respuesta' ).append("<div id='micol"+dato+"' class='col-sm-6 col-md-3' style='margin-bottom: 20px;'>");	
+						var codif =  encode(data[dato].Nombre).replace(/%20/g,'+'); 
+                	   $( '#respuesta' ).append("<div id='micol"+dato+"' class='col-sm-6 col-md-3  col-xs-6' style='margin-bottom: 20px;'>");	
                 	   $( "#micol"+dato ).append("<div id= 'mirow"+dato+"' class='row'>" ); 
-                	   $( "#mirow"+dato ).append("<a id='midir"+dato+"' href='Resta?restaurante="+data[dato].Nombre+"'>"+
-                			   "<img src='http://lorempixel.com/output/nature-q-c-200-200-10.jpg'  class='img-responsive img-rounded'</a>");
-                	   $( "#midir"+dato ).after("<div class='caption'><a href='Resta?restaurante="+data[dato].Nombre+"' style='text-decoration:none'>"+
-                			   " <p style='font-size: 20px;margin-top: 20px;'><b>"
-                			   +data[dato].Nombre+"</b></p></a><p>"+data[dato].TipoRes+"</p>");
+                	   $( "#mirow"+dato ).append("<a id='midir"+dato+"' href='Resta?restaurante="+codif+"'>"+
+                			   "<img src='http://i1095.photobucket.com/albums/i476/jesfeoro/restaurantes/"+data[dato].ImagenP+"'  class='img-responsive img-rounded'</a>");
+                	   $( "#midir"+dato ).after("<div class='caption'><a href='Resta?restaurante="+codif+"' style='text-decoration:none'>"+
+                			   " <p class='descripcion'><b>"
+                			   +data[dato].Nombre+"</b></p></a><p class='descripcion'>"+data[dato].TipoRes+"</p>");
 						
                 	});}
               },

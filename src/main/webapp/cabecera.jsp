@@ -27,9 +27,9 @@
 	              <a href="#" class="dropdown-toggle" data-toggle="dropdown">&nbsp;Info </a>
 	              <ul class="dropdown-menu" role="menu">
 	                <li class="dropdown-header">Los Parques</li>
-	                  <li><a href="Parques?parque=Magic Kingdom">Magic Kingdom</a></li>
+	                  <li><a href="Parques?parque=Magic+Kingdom">Magic Kingdom</a></li>
 	                  <li><a href="#">Epcot</a></li>
-	                  <li><a href="Parques?parque=Hollywood studios">Hollywood Studios</a></li>
+	                  <li><a href="Parques?parque=Hollywood+studios">Hollywood Studios</a></li>
 	                  <li><a href="#">Animal Kingdom</a></li>
 	                  <li><a href="#">Parques de Agua</a></li>
 	                 <li class="divider"></li>
@@ -53,7 +53,7 @@
 	        <li class="dropdown">
 	              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Restaurantes </a>
 	              <ul class="dropdown-menu" role="menu">
-	                 <li><a href="TiposRestaura?parque=Magic Kingdom">Magic Kingdom</a></li>
+	                 <li><a href="TiposRestaura?parque=Magic+Kingdom">Magic Kingdom</a></li>
 	                <li><a href="TiposRestaura?parque=Epcot">Epcot</a></li>
 	                <li><a href="#">Hollywood Studios</a></li>
 	                <li><a href="#">Animal Kingdom</a></li>

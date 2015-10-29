@@ -19,12 +19,12 @@ public class Conexion {
 		this("jdbc:mysql://127.0.0.1/plannerPropio","root","12345");		
 	}*/
 	public Conexion() {
-		//this.ConexionLocal();
-		this.ConexionRemota();	
+		this.ConexionLocal();
+		//this.ConexionRemota();	
 	}
 	public void ConexionLocal() {
 		try {
-			String url="jdbc:mysql://127.0.0.1/gparques";
+			String url="jdbc:mysql://127.0.0.1/gwdwfan";
 			String usuario="root";
 			String contraseña="12345";
 			//Cargamos el driver
@@ -40,7 +40,7 @@ public class Conexion {
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("erron en la conexion a la BBDD videoClub");
+			System.out.println("erron en la conexion a la BBDD gwdwfan(local)");
 			e.printStackTrace(); 
 		}		
 	}
@@ -65,7 +65,7 @@ public class Conexion {
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("erron en la conexion a la BBDD de prueba");
+			System.out.println("erron en la conexion a la BBDD de gwdwfan(remota)");
 			e.printStackTrace();
 		}
 	}

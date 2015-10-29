@@ -2,6 +2,7 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,7 +38,7 @@ public class Busquedas extends HttpServlet {
 	 */
 	public enum Opciones
 	{
-	    atraccion, parques   
+	    atraccion, parques, restaurante   
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -63,10 +64,16 @@ public class Busquedas extends HttpServlet {
 				switch (tipoOp)
 				{
 				    case atraccion:
+				    	 campo = URLEncoder.encode(campo, "UTF-8");
 				    	response.sendRedirect("Atrac?atraccion="+campo);
 				    	break;
-				    case parques: 
+				    case parques:
+				    	campo = URLEncoder.encode(campo, "UTF-8");
 				    	response.sendRedirect("Parques?parque="+campo);
+				    	break;
+				    case restaurante:
+				    	campo = URLEncoder.encode(campo, "UTF-8");
+				    	response.sendRedirect("Resta?restaurante="+campo);
 				    	break;
 				}			
 			}else {

@@ -37,14 +37,14 @@ public class BusquedaR extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Dentro del servlet BusquedaR");
+		
 		
 		String tipos= request.getParameter("opcion");
-		System.out.println("La opcion son -->"+tipos);
+		//System.out.println("La opcion son -->"+tipos);
 		String parque= request.getParameter("codigo");
-		System.out.println("El parque son -->"+parque);
+		//System.out.println("El parque son -->"+parque);
 		 try {
-			String resp= "Respondiendo de tipos-->"+tipos;		
+			//String resp= "Respondiendo de tipos-->"+tipos;		
 			//response.setContentType("text/plain");		
 			//response.getWriter().write(resp); 
 			//response.setContentType("application/json");		
