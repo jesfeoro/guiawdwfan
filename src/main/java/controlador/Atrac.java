@@ -1,5 +1,7 @@
 package controlador;
 
+import interfaces.DAOAtraccion;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.Atraccion;
+import dao.DAOAtraccionImpl;
 /**
  * Servlet implementation class Atrac
  */
@@ -33,8 +36,16 @@ public class Atrac extends HttpServlet {
 		String atrac = request.getParameter("atraccion");
 		
 		Atraccion at = new Atraccion();
+		at.setNombre(atrac);
+		DAOAtraccion dao = new DAOAtraccionImpl();
 		long startTime = System.currentTimeMillis();
-		at.obtenerAtraccion(atrac);
+		try {
+			at = dao.obtenerAtraccion(at);
+			at = dao.obtenerCaracteristicas(at);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		long stopTime = System.currentTimeMillis();
 	    long res = stopTime - startTime;
 	    System.out.println("TIEMPO --> "+res+" MiliSegundos");

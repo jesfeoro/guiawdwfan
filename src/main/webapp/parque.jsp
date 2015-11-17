@@ -1,7 +1,7 @@
 <%@page import="modelo.Parque"%><%@page import="modelo.Atraccion"%><%@page import="java.net.URLEncoder"%>
 <%@page import="java.util.Iterator"%><%@page import="java.util.Map"%><%@page import="java.util.Map.Entry"%>
 
-<%!Parque p; %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    %>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -56,7 +56,7 @@
   </head>
   <body>    	
 <%@ include file="/cabecera.jsp" %>
-<% p= (Parque)request.getAttribute("parque"); %>
+<%Parque p= (Parque)request.getAttribute("parque"); %>
 <div class="container">
   <div class="row"  >
     <div class="col-md-12">

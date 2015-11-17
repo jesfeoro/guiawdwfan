@@ -1,5 +1,7 @@
 package controlador;
 
+import interfaces.DAORestaurante;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
+
+import dao.DAORestauranteImpl;
 
 /**
  * Servlet implementation class BusquedaR
@@ -37,20 +41,17 @@ public class BusquedaR extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
+	
 		String tipos= request.getParameter("opcion");
 		//System.out.println("La opcion son -->"+tipos);
 		String parque= request.getParameter("codigo");
 		//System.out.println("El parque son -->"+parque);
-		 try {
-			//String resp= "Respondiendo de tipos-->"+tipos;		
-			//response.setContentType("text/plain");		
-			//response.getWriter().write(resp); 
-			//response.setContentType("application/json");		
+		 try {	
 			ArrayList<Restaurante> list =new ArrayList<Restaurante>();
 			Restaurante res= new Restaurante();
-			list=res.obtenerRest(tipos,parque);
+			DAORestaurante dao = new DAORestauranteImpl();
+			res.setListaR(dao.obtenerRest(tipos,parque));
+			list=res.getListaR();
 			 Gson gson = new Gson();
 			 JsonElement element = gson.toJsonTree(list, new TypeToken<List<Restaurante>>() {}.getType());
 			 JsonArray jsonArray = element.getAsJsonArray();

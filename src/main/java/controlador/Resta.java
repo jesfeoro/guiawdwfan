@@ -1,7 +1,8 @@
 package controlador;
 
+import interfaces.DAORestaurante;
+
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.Restaurante;
+import dao.DAORestauranteImpl;
 
 /**
  * Servlet implementation class Resta
@@ -32,12 +34,23 @@ public class Resta extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String resta= request.getParameter("restaurante");
-		PrintWriter out = response.getWriter();
+		//PrintWriter out = response.getWriter();
 		//out.println("Restaurante es -->"+resta);
 		//System.out.println("EN resta");
 		//System.out.println(resta);
 		Restaurante res = new Restaurante();
-		res = res.getRestaurante(resta);
+		try {
+			DAORestaurante dao = new DAORestauranteImpl();
+			res.setNombre(resta);
+			res = dao.getRestaurante(res);
+			res=dao.getCaracteristicasR(res);
+			res.setTmenus(dao.obtenermenus(res.getNmenu()));
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.println(e.getMessage());
+		}
+		//res = res.getRestaurante(resta);
 		if (res.getNombre() == null || res.getNombre() == "" ) {
 			    	
 					String motivo ="No existe ninguna restaurante con ese nombre en nuestra Base de Datos";
