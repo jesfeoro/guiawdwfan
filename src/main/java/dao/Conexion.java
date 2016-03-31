@@ -13,8 +13,8 @@ public class Conexion {
 	private PreparedStatement cochePreparado;
 
 	public Conexion() {
-		//this.ConexionLocal();
-	   this.ConexionRemota();
+		this.ConexionLocal();
+	  // this.ConexionRemota();
 	}
 
 	public void ConexionLocal() {
@@ -35,6 +35,7 @@ public class Conexion {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("erron en la conexion a la BBDD gwdwfan(local)");
+			ConexionRemota();
 			e.printStackTrace();
 		}
 	}
