@@ -13,8 +13,8 @@ public class Conexion {
 	private PreparedStatement cochePreparado;
 
 	public Conexion() {
-		this.ConexionLocal();
-	   //this.ConexionRemota();
+		//this.ConexionLocal();
+	   this.ConexionRemota();
 	}
 
 	public void ConexionLocal() {
