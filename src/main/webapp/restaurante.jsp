@@ -247,7 +247,7 @@ request.getContextPath() + "/"+"Resta?restaurante="+valor;
       <%String[] tipos= res.getTmenus();
         for(int i=0;i< tipos.length;i++){%>
       <div class="col-md-4" style="margin-bottom: 50px;">
-      <a href="Menu?restaurante=<%=valor %>&menu=<%=tipos[i] %>" style="text-decoration: none;">
+      <a href="Menu?restaurante=<%=valor %>&menu=<%=tipos[i] %>&idRes=<%=res.getCodRestaurante() %>" style="text-decoration: none;">
     	<div class="box9">
     		<p style="font: 400 50px/1 'Kaushan Script', cursive;"><%=tipos[i] %></p>
     	</div><!-- end box9 -->

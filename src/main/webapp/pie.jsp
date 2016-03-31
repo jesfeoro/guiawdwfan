@@ -12,6 +12,7 @@
               Para información oficial sobre Walt Disney World Resort, www.disney.com<br>
 
               www.GuiaWdWFan.com® - Todos los derechos reservados  2015</h6>
+              <a href="https://github.com/jesfeoro/guiawdwfan.git" title="Proyecto en GITHUB"><i class="fa fa-github fa-2x"></i></a>
         </div>        
       </div>
  </div>

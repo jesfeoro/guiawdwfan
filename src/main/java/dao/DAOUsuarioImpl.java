@@ -268,7 +268,7 @@ public class DAOUsuarioImpl extends Conexion implements DAOUsuario {
 		Boolean resul = false;
 		try {
 
-			Conexion con = new Conexion();
+			this.getConexion();
 			PreparedStatement ps = this.conexion.prepareStatement
 					("Select * from lostpassuser where email= ? and token = ?");
 			ps.setString(1, usu.getEmail());

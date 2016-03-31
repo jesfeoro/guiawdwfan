@@ -218,11 +218,17 @@ public class TratarUser extends HttpServlet {
 				// Boton Cancelar --> Pantalla de aviso texto ="Seguro que deseas salir?(Si sales tendras que perdir de nuevo
 				// el envio de "contraseña perdida"
 				// Crearemos una contraseña segura con PasswordGenerator
+				
 				String clave =PasswordGenerator.getPassword(
 						PasswordGenerator.MINUSCULAS+
 						PasswordGenerator.MAYUSCULAS,10);
 				// y la encriptamos para obtener un token, q le enviaremos al usuario
+				
+				usu.setPassword(clave);
 				String token=DigestUtils.sha256Hex(clave);
+				//agregamos la clave y el token al usuario
+				usu.setToken(token);
+				
 				//Obtenemos el Id del usuario		
 				usu.setIdUsuario(dao.ObtenerIDUsuario(usu));
 				// Agregar registro a la tabla lostPassUser

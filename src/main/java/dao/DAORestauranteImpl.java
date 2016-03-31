@@ -66,11 +66,11 @@ public class DAORestauranteImpl extends Conexion implements DAORestaurante{
 		Restaurante resta = new Restaurante();
 		try {
 			this.getConexion();
-			PreparedStatement ps = this.conexion.prepareStatement("select NOMBRE, BDescripcion, ImagenG, Tmenus from restaurante where NOMBRE=? limit 1;");
+			PreparedStatement ps = this.conexion.prepareStatement("select CodigoRestaurante, NOMBRE, BDescripcion, ImagenG, Tmenus from restaurante where NOMBRE=? limit 1;");
 			ps.setString(1, res.getNombre());
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				
+				resta.setCodRestaurante(rs.getInt("CodigoRestaurante"));
 				resta.setNombre(rs.getString("nombre"));
 				resta.setBDescrip(rs.getString("BDescripcion"));
 				resta.setImagenG(rs.getString("ImagenG"));				

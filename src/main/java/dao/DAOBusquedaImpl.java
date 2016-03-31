@@ -109,7 +109,7 @@ public class DAOBusquedaImpl extends Conexion implements DAOBusqueda {
 			ps1.setString(1, nombreB);
 			ResultSet rs1 = ps1.executeQuery();
 			Map<Integer, Busqueda> Mipagina = new LinkedHashMap<Integer, Busqueda>();
-			int n = 0, a = 0;
+			int n = 0;
 
 			while (rs1.next()) {
 				String direccion = "";

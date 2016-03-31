@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class Restaurante {
+private int CodRestaurante;	
 private String Nombre;
 private String TipoRes;
 private String ImagenP;
@@ -46,6 +47,13 @@ public Restaurante(String caracteristica, String tipoC, String valorC,
 	ValorC = valorC;
 	Nmenu = nulo1;
 	Nulo2 = nulo2;
+}
+
+public int getCodRestaurante() {
+	return CodRestaurante;
+}
+public void setCodRestaurante(int codRestaurante) {
+	CodRestaurante = codRestaurante;
 }
 public String getNombre() {
 	return Nombre;
