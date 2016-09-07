@@ -15,6 +15,7 @@ public class Conexion {
 	public Conexion() {
 		this.ConexionLocal();
 	  // this.ConexionRemota();
+		/*probando*/
 	}
 
 	public void ConexionLocal() {
