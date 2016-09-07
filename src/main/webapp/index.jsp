@@ -54,8 +54,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-12"><p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet accusamus assumenda, culpa eius laudantium architecto ratione tempore ducimus, eveniet adipisci commodi illum aspernatur doloribus ad saepe magni dolorum porro odit.</p>
+    <div class="col-lg-12"><p> 
+      PROBANDO OTRA VEZ EL PROJECTO  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet accusamus assumenda, culpa eius laudantium architecto ratione tempore ducimus, eveniet adipisci commodi illum aspernatur doloribus ad saepe magni dolorum porro odit.</p>
     </div>
     <div class="col-lg-12"><p>
       <b>El veloz murciélago hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja</b></p>
